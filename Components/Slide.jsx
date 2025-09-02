@@ -26,7 +26,7 @@ function Slide() {
   ];
 
   return (
-    <div >
+    <div className="-z-10" >
       <Swiper
         slidesPerView={1}
         pagination={{ clickable: true }}

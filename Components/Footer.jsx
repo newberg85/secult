@@ -35,7 +35,7 @@ import { FaInstagram, FaYoutube, FaFacebook } from "react-icons/fa";
 
          
           <section>
-            <h3 className="text-xl font-semibold mb-4">Informação</h3>
+            <h3 className="text-xl font-semibold mb-4">Informações</h3>
             <ul className="space-y-2 leading-10">
               <li><a href="#" className="hover:underline">Eventos</a></li>
               <li><a href="#" className="hover:underline">Podcast</a></li>

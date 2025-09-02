@@ -1,9 +1,11 @@
 import React from 'react'
+// import Nav from './Nav';
+// import MobileNav from './MobileNav';
 
 const Header = () => {
-  return (
-    <div className=''>Header</div>
-  )
+  return <header className="py-8 xl:py-12 text-black">
+    
+  </header>;
 }
 
 export default Header

@@ -28,12 +28,12 @@ export const Article = ({
         <img
           src={urlToImage}
           alt={title}
-          className="w-[50rem] h-[35rem] object-cover rounded-lg"
+          className="h-[420px] w-[600px] object-cover rounded-lg"
         />
       )}
 
       {/* Gradiente sobre a imagem */}
-      <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10"></div>
+      <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10 "></div>
 
       {/* Informações */}
       <div className="absolute bottom-5 left-5 z-20 text-white p-3 rounded-md w-4/5">
@@ -51,7 +51,7 @@ export const Article = ({
     </div>
   ) : (
     <div
-      className={`flex items-center mb-4 border-b border-gray-300 pb-3 ${className}`}
+      className={`flex items-center ml-5 border-l-7 border-[#10783B] pl-3 ${className}`}
     >
       {urlToImage && (
         <img

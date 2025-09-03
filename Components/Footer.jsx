@@ -100,10 +100,10 @@ const Footer = () => {
       <div className="bg-[#FF8A00] text-white flex flex-col md:flex-row justify-between items-center px-6 py-4">
         <p>@2025 Secult Maranguape. Todos os Direitos Reservados</p>
         <div className="flex space-x-4 mt-2 md:mt-0">
-          <a href="#" className="hover:underline">
+          <a href="#" className="hover:text-[#333333]">
             Políticas de privacidade
           </a>
-          <a href="#" className="hover:underline">
+          <a href="#" className="hover:text-[#333333]">
             Termos e condições
           </a>
         </div>

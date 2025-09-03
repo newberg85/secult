@@ -1,5 +1,6 @@
 import Footer from "@/Components/Footer";
 import Header from "@/Components/Header";
+import Footre from "@/Components/Footer";
 import Slide from "@/Components/Slide";
 import { LatestNews } from "@/Components/LatestNews";
 

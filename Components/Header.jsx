@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
+import { FaSearch } from 'react-icons/fa';
 
 const Header = () => {
   return (
@@ -17,13 +18,25 @@ const Header = () => {
             width={200}
             height={100} 
           />
-        </div>
-        <ul className="flex space-x-4 font-semibold text-sm z-20">
+
+          </div>
+      
+       <ul className="flex space-x-4 font-semibold text-sm z-20 p-2">
           <a href=""><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Home</li></a>
           <a href="SwiperComponent.js"><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Serviços</li></a>
           <a href=""><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Cultura</li></a>
           <a href=""><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Turismo</li></a>
           <a href=""><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Ouvidoria</li></a>
+                <div className="flex items-center">
+            <input
+              className="border-solid border-[2px] border-[#1B7E44] border-r-0 rounded-l-md py-1 px-3 focus:outline-none text-gray-700"
+              type="text"
+              placeholder="Digite..."
+            />
+            <button className="bg-[#1B7E44] p-2 rounded-r-md border-solid border-[2px] border-l-0 border-[#1B7E44]">
+              <FaSearch size={15} color="#FAFBFC" />
+            </button>
+          </div>
         </ul>
       </nav>
       

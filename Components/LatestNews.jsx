@@ -40,7 +40,7 @@ export const LatestNews = () => {
 
   const [mainArticle, ...sideArticles] = articles;
   return (
-    <div className="flex gap-4 my-8 mx-28 m">
+    <div className="flex gap-4 my-8 mx-28">
       {/* artigo em destaque */}
       <div className="flex-1">
         <Article
@@ -56,7 +56,7 @@ export const LatestNews = () => {
       </div>
 
       {/* próximos 4 artigos */}
-      <div className="flex flex-col gap-4 w-[350px] ">
+      <div className="flex flex-col gap-4 w-[350px]">
         {sideArticles.slice(0, 4).map((article, index) => (
           <Article
             key={index}

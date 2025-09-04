@@ -1,6 +1,7 @@
-import Header from "@/Components/Header";
 import Footer from "@/Components/Footer";
+import Header from "@/Components/Header";
 import Slide from "@/Components/Slide";
+import { LatestNews } from "@/Components/LatestNews";
 
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
     <div className="font-sans grid-rows-[20px_1fr_20px] items-center min-h-screen gap-16">
       <Header />
       <Slide />
+      <LatestNews />
       <Footer />
     </div>
   );

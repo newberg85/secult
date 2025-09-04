@@ -2,7 +2,16 @@
 import "./globals.css";
 import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import { Montsserat } from "next/font/google";
+import { register } from "swiper/element/bundle";
 import VLibras from "@/Components/Vlibras";
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import 'swiper/css/autoplay'
+register();
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

@@ -31,7 +31,7 @@ const Header = () => {
             <input
               className="border-solid border-[2px] border-[#1B7E44] border-r-0 rounded-l-md py-1 px-3 focus:outline-none text-gray-700"
               type="text"
-              placeholder="Digite..."
+              placeholder="Pesquisar..."
             />
             <button className="bg-[#1B7E44] p-2 rounded-r-md border-solid border-[2px] border-l-0 border-[#1B7E44]">
               <FaSearch size={15} color="#FAFBFC" />

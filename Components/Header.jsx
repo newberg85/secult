@@ -1,3 +1,5 @@
+'"use client"';
+
 import React from 'react'
 import Image from 'next/image';
 import { FaSearch } from 'react-icons/fa';
@@ -10,20 +12,20 @@ const Header = () => {
         Acessibilidade
       </div>
       {/* Menu principal */}
-      <nav className="container mx-auto py-4 px-4 flex justify-between items-center z-30">
-        <div>
+      <nav className="container mx-auto py-4 px-4 flex  sm:flex-row justify-between items-center z-30">
+        <div className="flex justify-between items-center w-full sm:w-auto">
           <Image
             src="/secult.png" 
             alt="Descrição da imagem"
             width={200}
             height={100} 
           />
-
+          
           </div>
       
        <ul className="flex space-x-4 font-semibold text-sm z-20 p-2">
           <a href=""><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Home</li></a>
-          <a href="SwiperComponent.js"><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Serviços</li></a>
+          <a href="/pages/Servicos"><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Serviços</li></a>
           <a href=""><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Cultura</li></a>
           <a href=""><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Turismo</li></a>
           <a href=""><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Ouvidoria</li></a>

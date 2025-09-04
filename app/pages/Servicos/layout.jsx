@@ -1,5 +1,5 @@
 // src/app/layout.jsx
-import "./globals.css";
+
 import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import { Montsserat } from "next/font/google";
 import { register } from "swiper/element/bundle";

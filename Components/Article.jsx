@@ -28,7 +28,7 @@ export const Article = ({
         <img
           src={urlToImage}
           alt={title}
-          className="h-[420px] w-[600px] object-cover rounded-lg"
+          className="h-[420px] w-full object-cover rounded-lg"
         />
       )}
 

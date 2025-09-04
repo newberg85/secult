@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image';
 import { FaSearch } from 'react-icons/fa';
+import Link from 'next/link';
 
 const Header = () => {
   return (
@@ -22,11 +23,11 @@ const Header = () => {
           </div>
       
        <ul className="flex space-x-4 font-semibold text-sm z-20 p-2">
-          <a href=""><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Home</li></a>
-          <a href="SwiperComponent.js"><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Serviços</li></a>
-          <a href=""><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Cultura</li></a>
-          <a href=""><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Turismo</li></a>
-          <a href=""><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Ouvidoria</li></a>
+          <Link href=""><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Home</li></Link>
+          <Link href="SwiperComponent.js"><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Serviços</li></Link>
+          <Link href=""><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Cultura</li></Link>
+          <Link href=""><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Turismo</li></Link>
+          <Link href=""><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Ouvidoria</li></Link>
                 <div className="flex items-center">
             <input
               className="border-solid border-[2px] border-[#1B7E44] border-r-0 rounded-l-md py-1 px-3 focus:outline-none text-gray-700"

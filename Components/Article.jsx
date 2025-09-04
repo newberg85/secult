@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { TbClockHour4 } from "react-icons/tb";
 
@@ -54,11 +55,14 @@ export const Article = ({
       className={`flex items-center ml-5 border-l-7 border-[#10783B] pl-3 ${className}`}
     >
       {urlToImage && (
-        <img
-          src={urlToImage}
-          alt={title}
-          className="max-w-[200px] max-h-[200px] w-auto h-auto rounded-lg mr-3"
-        />
+        <Image
+            src={urlToImage}
+            alt={title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 600px"
+            priority
+          />
       )}
       <div className="flex flex-col">
         <a href={url} target="_blank" rel="noopener noreferrer">

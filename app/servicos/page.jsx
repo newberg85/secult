@@ -3,6 +3,8 @@ import Slide from "@/Components/Slide";
 import Image from "next/image";
 import Link from "next/link";
 
+import { GiWhiteBook } from 'react-icons/gi';
+
 export default function Home() {
   return (
     <div className="font-sans grid-rows-[20px_1fr_20px] items-center min-h-screen pb-20 gap-16 font[Montsserat]">
@@ -44,6 +46,64 @@ export default function Home() {
             </Link>
           </div>
         </div>
+      </div>
+      <div className="flex flex-row flex-wrap gap-4 px-62">
+        <div className="bg-gray-300 w-76 h-50 rounded-sm">
+          <GiWhiteBook className="flex text-[#1B7E44] w-16 h-16 justify-center' items-center"/>
+          <Link href="">
+            <div className=" text-[#1B7E44] font-bold p-2">Cursos</div>
+            <div className="text-[#4B4B4B] p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit</div>
+          </Link>
+        </div>
+
+
+               <div className="bg-gray-300 w-76 h-50 rounded-sm">
+          <GiWhiteBook />
+          <Link href="">
+            <div className=" text-[#1B7E44] font-bold p-2">Cursos</div>
+            <div className="text-[#4B4B4B] p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit</div>
+          </Link>
+          
+        </div>
+
+
+               <div className="bg-gray-300 w-76 h-50 rounded-sm">
+          <GiWhiteBook />
+          <Link href="">
+            <div className=" text-[#1B7E44] font-bold p-2">Cursos</div>
+            <div className="text-[#4B4B4B] p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit</div>
+          </Link>
+          
+        </div>
+
+
+               <div className="bg-gray-300 w-76 h-50 rounded-sm">
+          <GiWhiteBook />
+          <Link href="">
+            <div className=" text-[#1B7E44] font-bold p-2">Cursos</div>
+            <div className="text-[#4B4B4B] p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit</div>
+          </Link>
+          
+        </div>
+
+               <div className="bg-gray-300 w-76 h-50 rounded-sm">
+          <GiWhiteBook />
+          <Link href="">
+            <div className=" text-[#1B7E44] font-bold p-2">Cursos</div>
+            <div className="text-[#4B4B4B] p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit</div>
+          </Link>
+          
+        </div>
+
+               <div className="bg-gray-300 w-76 h-50 rounded-sm">
+          <GiWhiteBook />
+          <Link href="">
+            <div className=" text-[#1B7E44] font-bold p-2">Cursos</div>
+            <div className="text-[#4B4B4B] p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit</div>
+          </Link>
+          
+        </div>
+
 
       </div>
     </div>

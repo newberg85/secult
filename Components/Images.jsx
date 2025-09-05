@@ -13,7 +13,7 @@ export default function Images() {
         const res = await axios.get("https://api.unsplash.com/search/photos", {
           params: {
             query: "cultura brasileira", 
-            // per_page: 8, 
+            per_page: 8, 
           },
           headers: {
             Authorization: `Client-ID ${process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY}`,
@@ -35,8 +35,10 @@ export default function Images() {
 
   return (
     <div className=" w-full p-10 gap-7 justify-center">
-      <h1 className="text-2xl font-bold text-black-700  pb-4">Imagens</h1>
-      <div className="flex flex-wrap gap-5 justify-center">
+      <div className="w-[220px]">
+      <h1 className="text-2xl font-bold text-black-700 ml-[93px]  pb-2 border-b-5  border-solid border-[#10783B] font-[Montserrat] ">Imagens</h1>
+      </div>
+      <div className="flex flex-wrap gap-5 justify-center border-t-1 pt-10 border-gray-400">
         {photos.map((p) => (
           <a
             key={p.id}

@@ -21,13 +21,13 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4 text-xl">
               <a href="https://www.instagram.com/secultmpe/" target="_blank">
-                <FaInstagram className="hover:text-[#333333]"/>
+                <FaInstagram className="hover:text-[#333333]" />
               </a>
               <a href="" target="_blank">
-                <FaYoutube className="hover:text-[#333333]"/>
+                <FaYoutube className="hover:text-[#333333]" />
               </a>
               <a href="" target="_blank">
-                <FaFacebook className="hover:text-[#333333]"/>
+                <FaFacebook className="hover:text-[#333333]" />
               </a>
             </div>
           </div>

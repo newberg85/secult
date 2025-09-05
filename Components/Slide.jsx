@@ -38,6 +38,7 @@ function Slide() {
     <div className="-z-10" >
       <Swiper
         slidesPerView={1}
+        navigation={true}
         pagination={{ clickable: true }}
         autoplay={{ delay: 2500 }}
       >

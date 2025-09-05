@@ -4,6 +4,7 @@ import Header from "@/Components/Header";
 import Slide from "@/Components/Slide";
 import { LatestNews } from "@/Components/LatestNews";
 import Images from "@/Components/Images";
+import Videos from "@/Components/Videos";
 
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <Slide />
       <LatestNews />
       <Images />
+      <Videos/>
       <Footer />
     </div>
   );

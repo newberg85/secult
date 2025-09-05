@@ -33,7 +33,7 @@ export default function Images() {
   return (
     <div className=" w-full p-10 gap-7 justify-center">
       {/* Título */}
-      <h1 className="text-2xl font-bold text-black-700  pb-4">Imagens</h1>
+      <h1 className="text-2xl font-bold text-black-700  pb-4 ">Imagens</h1>
 
       {/* Grid de imagens */}
       <div className="flex flex-wrap gap-5   justify-center">

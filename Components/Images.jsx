@@ -12,8 +12,8 @@ export default function Images() {
       try {
         const res = await axios.get("https://api.unsplash.com/search/photos", {
           params: {
-            query: "cultura brasileira", 
-            // per_page: 8, 
+            query: "Futebol", 
+            per_page: 8, 
           },
           headers: {
             Authorization: `Client-ID ${process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY}`,

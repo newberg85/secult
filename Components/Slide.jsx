@@ -2,6 +2,15 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import React from 'react'
 
+import { register } from "swiper/element/bundle";
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import 'swiper/css/autoplay'
+register();
+
 function Slide() {
   const data = [
     {
@@ -34,7 +43,7 @@ function Slide() {
       >
         {data.map((item) => (
           <SwiperSlide key={item.id}>
-            <img src={item.image} alt="slider" className="slide-item w-full h-[500px] object-cover"/>
+            <img src={item.image} alt="slider" className="slide-item w-full h-[650px] object-cover"/>
           </SwiperSlide>
         ))}
       </Swiper>

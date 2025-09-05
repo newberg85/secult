@@ -21,7 +21,7 @@ const Header = () => {
 
           </div>
       
-       <ul className="flex space-x-4 font-semibold text-sm z-20 p-2">
+       <ul className="flex space-x-4 font-semibold text-sm z-20 p-2 items-center">
           <a href=""><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Home</li></a>
           <a href="SwiperComponent.js"><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Serviços</li></a>
           <a href=""><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Cultura</li></a>
@@ -29,11 +29,11 @@ const Header = () => {
           <a href=""><li className="text-[#4B4B4B] hover:text-[#1B7E44]">Ouvidoria</li></a>
                 <div className="flex items-center">
             <input
-              className="border-solid border-[2px] border-[#1B7E44] border-r-0 rounded-l-md py-1 px-3 focus:outline-none text-gray-700"
+              className="h-8 border-solid border-[2px] border-[#1B7E44] border-r-0 rounded-l-md py-1 px-3 focus:outline-none text-gray-700"
               type="text"
               placeholder="Pesquisar..."
             />
-            <button className="bg-[#1B7E44] p-2 rounded-r-md border-solid border-[2px] border-l-0 border-[#1B7E44]">
+            <button className="h-8 bg-[#1B7E44] p-2 rounded-r-md border-solid border-[2px] border-l-0 border-[#1B7E44]">
               <FaSearch size={15} color="#FAFBFC" />
             </button>
           </div>

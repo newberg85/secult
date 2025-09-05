@@ -2,6 +2,7 @@ import Footer from "@/Components/Footer";
 import Header from "@/Components/Header";
 import Slide from "@/Components/Slide";
 import { LatestNews } from "@/Components/LatestNews";
+import Images from "@/Components/Images";
 
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <Header />
       <Slide />
       <LatestNews />
+      <Images />
       <Footer />
     </div>
   );

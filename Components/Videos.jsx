@@ -13,7 +13,7 @@ export default function Videos() {
         const res = await axios.get("https://www.googleapis.com/youtube/v3/search", {
           params: {
             part: "snippet",
-            q: "cultura brasileira", // termo da busca
+            q: "Cultura Maranguapense", // termo da busca
             type: "video",
             maxResults: 4,
             key: "AIzaSyB37eNZ9pghNLO4CxlGBapjCm1FVXR_7g4", // 🔑 sua API key

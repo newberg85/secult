@@ -38,7 +38,7 @@ export default function Images() {
       <div className=" w-full p-10 gap-7 justify-center">
         <div className="w-[220px]">
           <h1 className="text-2xl font-bold text-black-700 ml-[93px]  pb-2 border-b-5  border-solid border-[#10783B] font-[Montserrat] ">
-            Imagens
+            Principais Perguntas
           </h1>
         </div>
         <div className="flex flex-wrap gap-5 justify-center border-t-1 pt-10 border-gray-400">

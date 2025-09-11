@@ -101,7 +101,7 @@ const Header = () => {
               Cultura
             </li>
           </Link>
-          <Link href="/turismo">
+          <Link href="/Turismo">
             <li
               className={`text-[#4B4B4B] hover:text-[#1B7E44] ${
                 isActiveLink("/turismo")

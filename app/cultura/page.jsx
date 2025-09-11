@@ -6,6 +6,7 @@ import Link from "next/link";
 import { GiWhiteBook } from 'react-icons/gi';
 import Footer from "@/Components/Footer";
 import SlideEvents from "@/Components/SlideEvents";
+import Calendario from "@/Components/Calendario";
 
 export default function Home() {
   return (
@@ -30,18 +31,7 @@ export default function Home() {
         </div>
 
       <SlideEvents />
-
-       <div className=" w-full p-10 gap-7 justify-center">
-      <div className="w-[220px] ">
-        <h1 className="text-2xl font-bold  text-[#10783b] ml-[93px]  pb-2 border-b-5  border-solid border-[#10783b] font-[Montserrat] ">
-         Calendário
-        </h1>
-      </div>
-      <div className="flex flex-wrap gap-6 justify-center border-t-1 pt-10 border-gray-400">
-      
-      </div>
-    </div>
-
+      <Calendario />
       <Footer />
     </div>
     );

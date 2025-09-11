@@ -32,3 +32,9 @@ html, body, #root {
 .high-contrast a {
   color: cyan !important;
 }
+
+.custom-calendar {
+  width: 550px;
+  height: auto;
+}
+

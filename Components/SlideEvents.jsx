@@ -92,7 +92,7 @@ function SlideEvents() {
                 <img 
                   src={item.image} 
                   alt="slider" 
-                  className="w-full h-[500px] object-cover"
+                  className="w-full h-[500px] object-cover border-2  border-[#ffa124] "
                 />
               </SwiperSlide>
             ))}

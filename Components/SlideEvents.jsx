@@ -105,7 +105,7 @@ function SlideEvents() {
                 <img 
                   src={item.image} 
                   alt="slider" 
-                  className="w-full h-[500px] object-cover border-2  border-[#ffa124] "
+                  className="w-full h-[500px] object-cover border-2  border-[#ffa124]"
                 />
                 <div className="absolute bottom-0 left-0 w-full h-[170] bg-gradient-to-t from-black/90 via-black/60 to-transparent z-10 p-3">
                   <h3 className="text-2xl font-bold text-white">{item.title}</h3>

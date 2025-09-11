@@ -7,6 +7,7 @@ import Images from "@/Components/Images";
 import Videos from "@/Components/Videos";
 import Formulario from "@/Components/Formulario";
 import Perguntas from "@/Components/Perguntas";
+import Localizacao from "@/Components/Localizacao"
 
 export default function Home() {
 
@@ -19,6 +20,7 @@ export default function Home() {
       <Videos/>
       <Formulario />
       <Perguntas />
+      <Localizacao />
       <Footer />
     </div>
   );

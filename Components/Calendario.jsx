@@ -1,10 +1,9 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import axios from "axios";
 import "react-calendar/dist/Calendar.css";
-import "./Calendario.css"; // ou o caminho para seu CSS customizado
+import "./Calendario.css";
 
 function Calendario() {
   const [date, setDate] = useState(new Date());
@@ -96,7 +95,6 @@ function Calendario() {
                   key={event.id}
                   className="flex items-start gap-4 bg-gray-50 rounded-lg p-4 shadow-sm"
                 >
-                  <div className="w-12 h-12 bg-gray-300 rounded-md flex-shrink-0" />
                   <div>
                     <p className="font-semibold">
                       {event.summary || "Evento sem título"}

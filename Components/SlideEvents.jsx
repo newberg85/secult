@@ -7,6 +7,7 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { Description } from "@mui/icons-material";
 
 function SlideEvents() {
   const navigationPrevRef = useRef(null);
@@ -16,26 +17,38 @@ function SlideEvents() {
     {
       id: "1",
       image: "capa.png",
+      title: "Assalto no Penedo",
+      description: "Esse dia foi louco",
     },
     {
       id: "2",
       image: "https://www.imaterial.art.br/wp-content/uploads/2025/01/banner-imaterial-frete-gratis-brasil-desktop.jpg.webp",
+      title: "Assalto na Jubaia",
+      description: "",
     },
     {
       id: "3",
       image: "https://www.imaterial.art.br/wp-content/uploads/2023/09/banner-imaterial-justo-desktop.jpg.webp",
+      title: "Assalto no Itapebussu",
+      description: "",
     },
     {
       id: "4",
       image: "https://artesdocarlos.com.br/wp-content/uploads/2024/07/2.png",
+       title: "Assalto no Amanari",
+      description: "",
     },
-    {
+    { 
       id: "5",
       image: "https://www.imaterial.art.br/wp-content/uploads/2025/01/banner-imaterial-frete-gratis-brasil-desktop.jpg.webp",
+      title: "Assalto no Centro",
+      description: "",
     },
     {
       id: "6",
       image: "https://artesdocarlos.com.br/wp-content/uploads/2024/07/2.png",
+      title: "Assalto no Maranguape",
+      description: "",
     },
   ];
 
@@ -85,7 +98,7 @@ function SlideEvents() {
               swiper.params.navigation.prevEl = navigationPrevRef.current;
               swiper.params.navigation.nextEl = navigationNextRef.current;
             }}
-            className="w-full py-12 px-16" // Adicionado padding lateral para os botões
+            className="w-full py-12 px-16"
           >
             {data.map((item) => (
               <SwiperSlide key={item.id} className="w-full max-w-lg rounded-xl overflow-hidden shadow-2xl">
@@ -94,6 +107,10 @@ function SlideEvents() {
                   alt="slider" 
                   className="w-full h-[500px] object-cover border-2  border-[#ffa124] "
                 />
+                <div className="absolute bottom-0 left-0 w-full h-[170] bg-gradient-to-t from-black/90 via-black/60 to-transparent z-10 p-3">
+                  <h3 className="text-2xl font-bold text-white">{item.title}</h3>
+                  <p className="text-base text-gray-300 ">{item.description}</p>
+                </div>      
               </SwiperSlide>
             ))}
           </Swiper>

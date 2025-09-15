@@ -13,6 +13,8 @@ function SlideEvents() {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
 
+
+
   const data = [
     {
       id: "1",
@@ -125,8 +127,6 @@ function SlideEvents() {
             </svg>
           </button>
 
-          
-          
           {/* Paginação */}
           <div className="custom-pagination flex justify-center space-x-2 mt-6"></div>
         </div>

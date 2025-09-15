@@ -1,0 +1,13 @@
+import Header from "@/Components/Header";
+import Slide from "@/Components/Slide";
+import Image from "next/image";
+import Link from "next/link";
+import Footer from "@/Components/Footer";
+
+export default function Home() {
+  return (
+    <div className=" grid-rows-[20px_1fr_20px] items-center min-h-screen gap-16 font[Montserrat]">
+
+    </div>
+    );
+}

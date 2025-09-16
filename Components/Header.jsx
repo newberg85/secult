@@ -6,6 +6,8 @@ import { FaSearch } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AiOutlineFontSize } from "react-icons/ai";
+import { Pesquisar } from "./Pesquisar";
+
 
 const Header = () => {
   // linkando caminhos para ficarem ativos
@@ -104,7 +106,7 @@ const Header = () => {
           <Link href="/Turismo">
             <li
               className={`text-[#4B4B4B] hover:text-[#1B7E44] ${
-                isActiveLink("/turismo")
+                isActiveLink("/Turismo")
                   ? "text-[#1B7E44] font-bold border-b-2 border-[#1B7E44]"
                   : ""
               }`}
@@ -115,7 +117,7 @@ const Header = () => {
           <Link href="/Ouvidoria">
             <li
               className={`text-[#4B4B4B] hover:text-[#1B7E44] ${
-                isActiveLink("/ouvidoria")
+                isActiveLink("/Ouvidoria")
                   ? "text-[#1B7E44] font-bold border-b-2 border-[#1B7E44]"
                   : ""
               }`}
@@ -123,16 +125,7 @@ const Header = () => {
               Ouvidoria
             </li>
           </Link>
-          <div className="flex items-center">
-            <input
-              className="h-8 border-solid border-[2px] border-[#1B7E44] border-r-0 rounded-l-md py-1 px-3 focus:outline-none text-gray-700"
-              type="text"
-              placeholder="Pesquisar..."
-            />
-            <button className="h-8 bg-[#1B7E44] p-2 rounded-r-md border-solid border-[2px] border-l-0 border-[#1B7E44]">
-              <FaSearch size={15} color="#FAFBFC" />
-            </button>
-          </div>
+          <Pesquisar />
         </ul>
       </nav>
 

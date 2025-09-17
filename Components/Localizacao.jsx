@@ -7,7 +7,7 @@ export default function AccordionUsage() {
     <div className="w-full px-10 pt-10 pb-10">
        <div className="mb-6">
         <h1 className="text-2xl font-bold text-black border-b-4 ml-[70px] border-[#10783b] inline-block pb-2">
-          Como chegar
+          Como Chegar
         </h1>
         <div className="border-t-1 pt-10 border-gray-400 w-full"></div>
       </div>

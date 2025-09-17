@@ -71,8 +71,8 @@ export default function Images() {
 
   return (
     <div className=" w-full p-10 gap-7 justify-center">
-      <div className="w-[220px] ">
-        <h1 className="text-2xl font-bold text-black-700 ml-[93px]  pb-2 border-b-5  border-solid border-[#10783B] font-[Montserrat] ">
+      <div className="mt-6">
+        <h1 className="text-3xl font-bold text-black border-b-4 ml-[70px] border-[#10783b] inline-block pb-2">
          Links rápidos
         </h1>
       </div>

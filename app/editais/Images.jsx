@@ -59,7 +59,7 @@ export default function Images() {
   if (loading) return <p className="text-center text-gray-600">Carregando Editais...</p>;
 
   return (
-    <div className="flex flex-col w-full p-8 gap-9 justify-center">
+    <div className="flex flex-col w-full p-8 gap-9 justify-center mb-[100]">
        <div className="flex flex-col justify-center items-center p-10">
                 <svg xmlns="http://www.w3.org/2000/svg" className="text-[#0C743A] text-center" width={49} height={49} viewBox="0 0 24 24"><path fill="currentColor" fillRule="evenodd" d="M18 4v3h3a1 1 0 0 1 1 1v10a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1m2 14a1 1 0 1 1-2 0V9h2zM6 8a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1m2 4a1 1 0 0 1 1-1h4a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1" clipRule="evenodd"></path></svg>
                 <h2 className="text-black font-bold text-3xl text-center mt-5">Últimos Editais</h2>

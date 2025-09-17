@@ -12,10 +12,7 @@ export default function Home() {
             <h1 className="text-[#005A38] text-5xl font-semibold pb-1">Editais e Seleção</h1>
             <div className="border-3 w-[110] border-[#FC8A0E]"></div>
         </div>
-
-        <div className="w-full">
-                <Images />
-        </div>
+      <Images />
       <Footer />
     </div>
     );

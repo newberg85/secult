@@ -34,7 +34,7 @@ const Header = () => {
   };
 
   return (
-    <header className="flex flex-col items-center w-full border-b-[1px] border-solid border-[#D9D9D9] font-[Montserrat] z-50">
+    <header className="flex flex-col items-center w-full border-b-[1px] border-solid border-[#D9D9D9] font-[Montserrat] z-1000 order-1">
       <div className="bg-[#10783B] w-full p-2 text-white z-40 flex justify-between items-center px-20">
         {/* Texto à esquerda */}
         <span className="font-extralight text-xs">
@@ -159,7 +159,7 @@ const Header = () => {
               Editais
             </li>
           </Link>
-          <Link href="/equipamentos">
+          <Link href="/Equipamentos">
             <li
               className={`text-white hover:text-[#333333] ${
                 isActiveLink("/equipamentos") ? "font-bold underline" : ""

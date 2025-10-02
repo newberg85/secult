@@ -35,7 +35,7 @@ function Slide() {
   ];
 
   return (
-    <div className="-z-10" >
+    <div className="-z-10 sm:w-full " >
       <Swiper
         slidesPerView={1}
         navigation={true}
@@ -44,7 +44,12 @@ function Slide() {
       >
         {data.map((item) => (
           <SwiperSlide key={item.id}>
-            <img src={item.image} alt="slider" className="slide-item w-full h-[650px] object-cover"/>
+           <img 
+              src={item.image} 
+              alt="slider" 
+              className="slide-item w-full h-[300px] sm:h-[400px] w-[310px] md:h-[500px] lg:h-[650px] object-cover"
+            />
+
           </SwiperSlide>
         ))}
       </Swiper>

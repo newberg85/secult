@@ -3,9 +3,9 @@ import { FaSearch } from 'react-icons/fa'
 
 export const Pesquisar = () => {
   return (
-    <div className="flex items-center">
+    <div className="flex items-cente ">
                 <input
-                  className="h-8 border-solid border-[2px] border-[#1B7E44] border-r-0 rounded-l-md py-1 px-3 focus:outline-none text-gray-700"
+                  className="h-8 border-solid border-[2px] border-[#1B7E44] border-r-0 rounded-l-md py-1 px-3 focus:outline-none text-gray-700  sm:flex flex-col justify-center"
                   type="text"
                   placeholder="Pesquisar..."
                 />
@@ -15,3 +15,4 @@ export const Pesquisar = () => {
     </div>
   )
 }
+export default Pesquisar;

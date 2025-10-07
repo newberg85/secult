@@ -24,7 +24,7 @@ export default function Home() {
             <img
               src="/secult-serviços.png"
               alt={ "Foto do Unsplash"}
-              className="w-[900] h-[500] object-cover"
+              className="w-[900] h-[500] object-cover hidden sm:block"
             />
             </div>
 

@@ -6,8 +6,12 @@
   font-family: 'Montserrat', sans-serif;
   line-height: 1.125em;
 }
-
-.react-calendar__navigation {
+@media (max-width: 480px) {
+  .react-calendar__month-view__weekdays{
+    text-wrap: nowrap;
+  }
+}
+.react-calendar__navigation  {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,6 +25,7 @@
   color: #10783b;
   cursor: pointer;
 }
+
 
 .react-calendar__month-view__weekdays {
   text-align: center;
@@ -42,6 +47,7 @@
 .react-calendar__tile--active {
   background: #10783b;
   color: white;
+  
 }
 
 .react-calendar__tile:enabled:hover {

@@ -5,12 +5,13 @@ import Image from "next/image";
 export default function AccordionUsage() {
   return (
     <div className="w-full px-10 pt-10 pb-10">
-       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-black border-b-4 ml-[70px] border-[#10783b] inline-block pb-2">
-          Como Chegar
-        </h1>
+          <div className=" pl-4 sm:pl-8 md:pl-12">
+          <h1 className="text-2xl font-bold text-black pb-2 border-b-4 border-[#10783B] font-[Montserrat] inline-block">
+            Como Chegar?
+          </h1>
+        </div>
         <div className="border-t-1 pt-10 border-gray-400 w-full"></div>
-      </div>
+   
       <div className="flex gap-5">
         <div className="w-full h-[450px]">
           <iframe

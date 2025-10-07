@@ -15,15 +15,18 @@ export default function Videos() {
   useEffect(() => {
     async function fetchVideos() {
       try {
-        const res = await axios.get("https://www.googleapis.com/youtube/v3/search", {
-          params: {
-            part: "snippet",
-            q: "Cultura Maranguapense",
-            type: "video",
-            maxResults: 4,
-            key: "AIzaSyB37eNZ9pghNLO4CxlGBapjCm1FVXR_7g4",
-          },
-        });
+        const res = await axios.get(
+          "https://www.googleapis.com/youtube/v3/search",
+          {
+            params: {
+              part: "snippet",
+              q: "Cultura Maranguapense",
+              type: "video",
+              maxResults: 4,
+              key: "AIzaSyB37eNZ9pghNLO4CxlGBapjCm1FVXR_7g4",
+            },
+          }
+        );
 
         setVideos(res.data.items);
       } catch (err) {
@@ -40,13 +43,12 @@ export default function Videos() {
 
   return (
     <div className="w-full p-10">
-      {/* título com borda verde */}
-      <div className="ml-[90px] inline-block border-b-5 border-solid border-[#10783B] pb-2">
-        <h1 className="text-2xl font-bold text-black-700 font-[Montserrat]">
-          Videos
+      <div className=" pl-4 sm:pl-8 md:pl-12">
+        <h1 className="text-2xl font-bold text-black pb-2 border-b-4 border-[#10783B] font-[Montserrat] inline-block">
+          Vídeos
         </h1>
       </div>
-
+      <div className="border-t-1 pt-10 border-gray-400 w-full"></div>
       {/* Desktop / Tablet: linha normal */}
       <div className="hidden md:flex gap-5 border-t border-gray-400 mt-0 pt-4">
         {videos.map((video) => (

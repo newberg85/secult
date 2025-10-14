@@ -7,7 +7,6 @@ import { Article } from "./Article";
 export const LatestNews = () => {
   const [articles, setArticles] = useState([]);
 
-  // api
   const fetchNews = async () => {
     try {
       const response = await axios.get(
@@ -18,13 +17,10 @@ export const LatestNews = () => {
 
       const sortedArticles = fetchedArticles.sort(
         (a, b) =>
-          new Date(b.publishedAt).getTime() -
-          new Date(a.publishedAt).getTime()
+          new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
       );
 
       setArticles(sortedArticles);
-
-      console.log(sortedArticles);
     } catch (error) {
       console.error("Erro ao buscar noticias:", error);
     }
@@ -35,17 +31,19 @@ export const LatestNews = () => {
   }, []);
 
   if (articles.length === 0) {
-    return <p>Carregando notícias...</p>;
+    return <p className="text-center p-4">Carregando notícias...</p>;
   }
 
   const [mainArticle, ...sideArticles] = articles;
+
   return (
-    <div className="flex gap-4 my-8 mx-[220px]">
-     
+    <div className="flex flex-col md:flex-row gap-6 my-8 mx-4 md:mx-12 lg:mx-40">
       {/* artigo em destaque */}
       <div className="flex-1">
-         <h2 className="text-[#486284] font-semibold text-xl mb-2">Últimas Notícias</h2>
-         <Article
+        <h2 className="text-[#486284] font-semibold text-xl mb-4 sm:text-lg">
+          Últimas Notícias
+        </h2>
+        <Article
           title={mainArticle.title}
           author={mainArticle.author}
           description={mainArticle.description}
@@ -58,7 +56,7 @@ export const LatestNews = () => {
       </div>
 
       {/* próximos 4 artigos */}
-      <div className="flex mt-9 flex-col gap-4 w-[350px]">
+      <div className="flex flex-col gap-4 w-full md:w-[350px] mt-6 md:mt-9">
         {sideArticles.slice(0, 4).map((article, index) => (
           <Article
             key={index}

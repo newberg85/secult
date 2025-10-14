@@ -12,6 +12,7 @@ function Calendario() {
   const calendarId = "sousaarimateia4567@gmail.com";
   const apiKey = "AIzaSyB2W9k8EyV2nCiXahS66qdEKIXROy07ce8";
 
+  // Função para buscar eventos do Google Calendar
   const fetchEvents = async (selectedDate) => {
     try {
       const timeMin = new Date(
@@ -55,7 +56,8 @@ function Calendario() {
   }, [date]);
 
   return (
-    <div className="w-full p-10 font-[Montserrat] bg-gray-50 min-h-screen">
+    <div className="flex flex-col w-full p-10 font-[Montserrat] bg-gray-50 min-h-screen">
+      {/* Título */}
       <div className="mb-6">
         <h1 className="text-3xl font-bold text-[#10783b] border-b-4 border-[#10783b] inline-block pb-1">
           Calendário
@@ -63,9 +65,10 @@ function Calendario() {
         <div className="border-t-1 pt-10 border-gray-400 w-full"></div>
       </div>
 
-      <div className="flex bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200">
+  
+      <div className="flex flex-col lg:flex-row bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200">
         {/* Calendário */}
-        <div className="w-1/2 p-6 border-r border-gray-200 flex justify-center items-center">
+        <div className="w-full lg:w-1/2 p-6 border-b lg:border-b-0 lg:border-r border-gray-200 flex justify-center items-center">
           <Calendar
             onChange={setDate}
             value={date}
@@ -78,9 +81,10 @@ function Calendario() {
         </div>
 
         {/* Eventos */}
-        <div className="w-1/2 p-6">
+        <div className="w-full lg:w-1/2 p-6">
           <h2 className="text-xl font-bold text-[#10783b] mb-6 uppercase">
-            EVENTOS PARA {date.toLocaleDateString("pt-BR", {
+            EVENTOS PARA{" "}
+            {date.toLocaleDateString("pt-BR", {
               day: "numeric",
               month: "long",
             })}

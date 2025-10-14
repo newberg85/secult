@@ -12,7 +12,7 @@ import Localizacao from "@/Components/Localizacao"
 export default function Home() {
 
   return (
-    <div className="font-sans grid-rows-[20px_1fr_20px] items-center min-h-screen gap-16">
+    <div className="font-sans grid-rows-[20px_1fr_20px] items-center min-h-screen gap-16 w-full">
       <Header />
       <Slide />
       <LatestNews />

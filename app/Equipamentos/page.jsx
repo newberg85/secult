@@ -14,11 +14,11 @@ export default function Home() {
         </p>
       </header>
       <div className="flex justify-center items-center py-5">
-        <div class="bg-white border-l-4 border-green-700 p-4 rounded shadow w-2xl h-46 flex flex-col justify-center">
-          <h2 class="text-lg font-bold text-green-700 p-2">
+        <div className="bg-white border-l-4 border-green-700 p-4 rounded shadow w-2xl h-46 flex flex-col justify-center">
+          <h2 className="text-lg font-bold text-green-700 p-2">
             Biblioteca Pública de Maranguape
           </h2>
-          <p class="text-center p-1">
+          <p className="text-center p-1">
             A Biblioteca Pública de Maranguape é um importante polo cultural,
             oferecendo uma rica coleção de livros e recursos para promover a
             educação e o engajamento comunitário na região.

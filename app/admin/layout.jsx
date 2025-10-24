@@ -1,12 +1,12 @@
 'use client';
 import AdminNav from '../components/AdminNav';
-import ProtectedRoute from '../components/ProtectedRoute';
+
 
 const AdminLayout = ({ children }) => {
   return (
-      <div className="flex">
+      <div className="flex flex-col">
         <AdminNav />
-        <main className="flex-1 p-6 bg-gray-50 min-h-screen">
+        <main className="flex-1 p-6 sm:p-1 bg-gray-50 ">
           {children}
         </main>
       </div>

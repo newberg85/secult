@@ -2,23 +2,83 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { IoAddCircleOutline } from "react-icons/io5";
+import { MdOutlineAdd } from 'react-icons/md';
 
 const SideBar = () => {
   return (
-    <div className="flex flex-col bg-slate-100">
-      <div className="px-2 sm:pl-14 py-3 border border-black">
+    <div className="min-h-screen p-6 font-[Montserrat]">
+      <div className="px-2 sm:pl-14 py-3">
         {/* <Image src={assets.logo} width={120} alt='' /> */}
       </div>
-      <div className="w-28 sm:w-80 h-[100vh] relative py-12 border border-black">
-        <div className=" w-[50% sm:w-[80%] absolute right-0">
-          <Link href='/admin/addNotice' className="flex items-center border border-black gap-3 font-medium px-3 py-2 bg-white shadow-[-5px_5px_0px_#000000]">
-            <IoAddCircleOutline className="text-3xl"/> <p>Adicionar Noticia</p>
-          </Link>
-          <div className="mt-5 flex items-center border border-black gap-3 font-medium px-3 py-2 bg-white shadow-[-5px_5px_0px_#000000]">
-            <IoAddCircleOutline className="text-3xl"/> <p>Adicionar Eventos</p>
+    <h1 className="flex justify-center items-center text-2xl font-bold pb-6 font-[Montserrat]">Funções do admin!</h1>
+      <div className="w-full relative py-0 space-y-6">
+        {/* Notícias */}
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-white shadow rounded-lg p-6 flex justify-between items-center">
+            <div>
+              <h1 className="text-2xl font-bold text-gray-800">
+                Cadastre Notícias!
+              </h1>
+              <p className="text-gray-600">
+                Cadastre aqui as principais notícias do município
+              </p>
+            </div>
+            <Link
+              href="/admin/addNotice"
+              className="flex items-center justify-center gap-3 font-medium 
+                         px-5 py-3 text-white bg-green-800 rounded-md 
+                         hover:bg-green-700 transition-all 
+                         min-w-[240px] h-[60px]"
+            >
+              <MdOutlineAdd className="text-2xl" />
+              <p className="text-lg text-white">Adicionar Notícias</p>
+            </Link>
           </div>
-          <div className="mt-5 flex items-center border border-black gap-3 font-medium px-3 py-2 bg-white shadow-[-5px_5px_0px_#000000]">
-            <IoAddCircleOutline className="text-3xl"/> <p>Adicionar Editais</p>
+        </div>
+
+        {/* Eventos */}
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-white shadow rounded-lg p-6 flex justify-between items-center">
+            <div>
+              <h1 className="text-2xl font-bold text-gray-800">
+                Cadastre Eventos!
+              </h1>
+              <p className="text-gray-600">
+                Cadastre aqui os principais eventos do município
+              </p>
+            </div>
+            <div
+              className="flex items-center justify-center gap-3 font-medium 
+                         px-5 py-3 text-white bg-green-800 rounded-md 
+                         hover:bg-green-700 transition-all 
+                         min-w-[240px] h-[60px] cursor-pointer"
+            >
+              <MdOutlineAdd className="text-2xl" />
+              <p className="text-lg text-white">Adicionar Eventos</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Editais */}
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-white shadow rounded-lg p-6 flex justify-between items-center">
+            <div>
+              <h1 className="text-2xl font-bold text-gray-800">
+                Cadastre Editais!
+              </h1>
+              <p className="text-gray-600">
+                Cadastre aqui os principais editais do município
+              </p>
+            </div>
+            <div
+              className="flex items-center justify-center gap-3 font-medium 
+                         px-5 py-3 text-white bg-green-800 rounded-md 
+                         hover:bg-green-700 transition-all 
+                         min-w-[240px] h-[60px] cursor-pointer"
+            >
+              <MdOutlineAdd className="text-2xl" />
+              <p className="text-lg text-white">Adicionar Editais</p>
+            </div>
           </div>
         </div>
       </div>

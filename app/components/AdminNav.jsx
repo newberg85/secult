@@ -3,11 +3,15 @@ import { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, Package, PanelBottom, PanelRight, X } from "lucide-react";
+import { Sheet, SheetTrigger, SheetContent } from "@/Components/ui/sheet";
+import { Button } from "@/Components/ui/button";
+import Link from "next/link";
+
 
 const AdminNav = () => {
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
+  
 
   const handleLogout = async () => {
     await signOut(auth);
@@ -15,57 +19,33 @@ const AdminNav = () => {
   };
 
   return (
-    <div className="relative bg-gray-50 p-4">
-      {/* Barra superior com o botão hambúrguer */}
-      <div className="flex items-center justify-between text-black px-4 py-3 shadow-md rounded-full">
-        <h1 className="text-lg font-semibold"></h1>
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="text-black focus:outline-none"
-          aria-label="Abrir menu"
-        >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </div>
+    <div className="flex flex-col  bg-muted/40 p-4">
+     <div className="sm:hidden flex flex-col">
+      <header className="sticky top-0 z-30 flex items-center gap-3 sm:static">
+       <Sheet>
+        <SheetTrigger  asChild>
+          <Button size='icon' variant='outline' className='w-[50px] h-[50px] rounded-full sm:hidden'>
+            <PanelBottom className="w-15 h-15"/>
+            <span className="sr-only">Abrir / Fechar menu</span>
+          </Button>
+        </SheetTrigger>
 
-      {/* Menu lateral (aparece em todas as telas) */}
-      <aside
-        className={`
-          fixed top-0 left-0 z-40 w-64 h-[80px] text-white p-4 
-          transform ${isOpen ? "translate-x-0" : "-translate-x-full"}
-          transition-transform duration-300 ease-in-out
-        `}
-      >
-        <nav className="flex flex-col h-full">
-          <h2 className="text-2xl font-bold mb-8 text-black">Admin</h2>
-          <ul className="flex-1">
-            <li className="mb-4">
-              <a
-                href="/admin/dashboard"
-                className="block text-black hover:text-gray-800"
-                onClick={() => setIsOpen(false)}
+        <SheetContent className="sm:max-w-xs">
+            <nav className="px-4 py-7 grid gap-6 text-lg font-medium">
+              <Link 
+              href='#'
+              className="flex h-10 bg-primary rounded-full"
               >
-                Dashboard
-              </a>
-            </li>
-            {/* Adicione outros links aqui */}
-          </ul>
-          <button
-            onClick={handleLogout}
-            className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded w-full"
-          >
-            Sair
-          </button>
-        </nav>
-      </aside>
-
-      {/* Fundo escurecido ao abrir o menu */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-white bg-opacity-25 z-30"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
+                <Package className="w-5 h-5 transition-all"/>
+                <span className="sr-only">
+                  Logo
+                </span>
+              </Link>
+            </nav>
+        </SheetContent>
+       </Sheet>
+       </header>
+    </div>
     </div>
   );
 };

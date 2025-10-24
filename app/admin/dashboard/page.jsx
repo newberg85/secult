@@ -1,6 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import SideBar from '@/Components/AdminComponents/Sidebar';
+
+
 
 export default function DashboardPage() {
   const [user, setUser] = useState(null);
@@ -44,15 +47,10 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className=" bg-gray-50">
+      <div className="max-w-[90%] mx-auto">
         <header className="bg-white shadow rounded-lg p-6 mb-6 flex justify-between items-center">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-800">Painel Administrativo</h1>
-            <p className="text-gray-600">
-              Bem-vindo, <strong>{user.nome}</strong>! ({user.email})
-            </p>
-          </div>
+
           <button
             onClick={handleLogout}
             className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md transition-colors"
@@ -61,12 +59,7 @@ export default function DashboardPage() {
           </button>
         </header>
 
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h2 className="text-xl font-semibold mb-4">Dashboard</h2>
-          <p className="text-gray-700">
-            Você está logado com sucesso no painel administrativo!
-          </p>
-        </div>
+        <SideBar />
       </div>
     </div>
   );

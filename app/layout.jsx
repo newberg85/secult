@@ -3,6 +3,7 @@ import "./globals.css";
 import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import { Montsserat } from "next/font/google";
 import VLibras from "@/Components/Vlibras";
+import { cn } from "@/lib/utils";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

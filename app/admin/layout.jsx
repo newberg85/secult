@@ -1,19 +1,18 @@
-import Sidebar from "@/Components/AdminComponents/Sidebar";
-import { FaUser } from "react-icons/fa";
+'use client';
+import AdminNav from '../components/AdminNav';
+import ProtectedRoute from '../components/ProtectedRoute';
 
-export default function Layout({ children }) {
+const AdminLayout = ({ children }) => {
   return (
-    <>
+    <ProtectedRoute>
       <div className="flex">
-        <Sidebar />
-        <div className="flex flex-col w-full">
-            <div className="flex items-center justify-between w-full py-3 max-h-[60px] px-12 border-b border-black">
-                <h3 className="font-medium">Painel do Administrador</h3>
-                <FaUser className="font-3xl"/>
-            </div>
-            {children}
-        </div>
+        <AdminNav />
+        <main className="flex-1 p-6 bg-gray-50 min-h-screen">
+          {children}
+        </main>
       </div>
-    </>
+    </ProtectedRoute>
   );
-}
+};
+
+export default AdminLayout;

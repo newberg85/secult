@@ -38,3 +38,6 @@ html, body, #root {
   height: auto;
 }
 
+.swiper-pagination {
+  @apply flex justify-center;
+}

@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="mt-auto">
       <div className="bg-[#10783B] text-white">
-        <div className="max-w-7xl mx-auto px-6 py-10 grid grid-c:grid-cols-2 md:grid-cols-4 gap-9">
+        <div className="max-w-7xl mx-auto px-6 py-10 grid grid-c:grid-cols-2 md:grid-cols-4 gap-9 w-full">
           <div>
             <Image
               src="/logo-positiva.png"
@@ -97,7 +97,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="bg-[#FF8A00] text-white flex flex-col md:flex-row justify-between items-center px-6 py-4">
+      <div className="bg-[#FF8A00] text-white flex flex-col md:flex-row justify-center items-center px-6 py-4">
         <p>@2025 Secult Maranguape. Todos os Direitos Reservados</p>
         <div className="flex space-x-4 mt-2 md:mt-0">
           <a href="#" className="hover:text-[#333333]">
@@ -108,6 +108,7 @@ const Footer = () => {
           </a>
         </div>
       </div>
+      
     </footer>
   );
 };

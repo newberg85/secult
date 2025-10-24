@@ -1,4 +1,4 @@
-"use client"; // necessário para Client Component no Next.js
+"use client";
 
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -31,32 +31,42 @@ export default function Images() {
     fetchPhotos();
   }, []);
 
-  if (loading) return <p>Carregando imagens...</p>;
+  // if (loading) return <p className="text-center p-4">Carregando imagens...</p>;
 
   return (
-    <div className=" w-full p-10 gap-7 justify-center">
-      <div className=" w-full p-10 gap-7 justify-center">
-        <div className="w-[220px]">
-          <h1 className="text-2xl font-bold text-black-700 ml-[93px]  pb-2 border-b-5  border-solid border-[#10783B] font-[Montserrat] ">
+    <div className="w-full py-10 flex justify-center">
+      <div className="w-full max-w-7xl mx-4 md:mx-0">
+        <div className="">
+          <h1 className="text-2xl font-bold text-black pb-2 border-b-4 border-[#10783B] font-[Montserrat] inline-block">
             Imagens
           </h1>
         </div>
-        <div className="flex flex-wrap gap-5 justify-center border-t-1 pt-10 border-gray-400">
-          {photos.map((p) => (
-            <a
-              key={p.id}
-              href={p.links.html}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 w-[300px] h-[400px]"
-            >
-              <img
-                src={p.urls.small}
-                alt={p.alt_description ?? "Foto do Unsplash"}
-                className="w-full h-full object-cover"
-              />
-            </a>
-          ))}
+
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pt-6 border-t border-gray-300">
+            {(loading ? Array.from({ length: 8 }) : photos).map((p, idx) =>
+              loading ? (
+                <div
+                  key={idx}
+                  className="w-full h-64 md:h-80 lg:h-96 bg-gray-300 rounded-lg animate-pulse"
+                ></div>
+              ) : (
+                <a
+                  key={p.id}
+                  href={p.links.html}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+                >
+                  <img
+                    src={p.urls.small}
+                    alt={p.alt_description ?? "Foto do Unsplash"}
+                    className="w-full h-64 md:h-80 lg:h-96 object-cover"
+                  />
+                </a>
+              )
+            )}
+          </div>
         </div>
       </div>
     </div>

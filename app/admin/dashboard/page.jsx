@@ -2,7 +2,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import SideBar from '@/Components/AdminComponents/Sidebar';
-
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/Components/ui/card';
+import { Users } from 'lucide-react';
 
 
 export default function DashboardPage() {
@@ -49,19 +50,97 @@ export default function DashboardPage() {
   return (
     <div className=" bg-gray-50">
       <div className="max-w-[90%] mx-auto">
-        <header className="bg-white shadow rounded-lg p-6 mb-6 flex justify-between items-center">
+       {/* <header className="bg-white shadow rounded-lg p-6 mb-6 flex justify-between items-center">
 
-          <button
-            onClick={handleLogout}
-            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md transition-colors"
-          >
-            Sair
-          </button>
-        </header>
+        </header>  */}
+          <section className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+            <Card>
+                <CardHeader className="flex flex-col items-center justify-center">
+                  <div>
+                    <CardTitle className="text-lg sm:text-2xl text-gray-800 select-none">
+                        Total de Divulgações
+                    </CardTitle>
+                  </div>
+                  <CardDescription className="sm:text-lg">
+                    Total de Divulgações em +30 dias
+                  </CardDescription>
+                </CardHeader>
 
+                <CardContent>
+                  <p className='text-base sm:text-2xl sm:text-center font-bold text-center'>
+                     1.249
+                  </p>
+                </CardContent>
+
+            </Card>
+
+
+            <Card>
+                <CardHeader className="flex flex-col items-center justify-center">
+                  <div>
+                    <CardTitle className="text-lg sm:text-2xl text-gray-800 select-none">
+                        Número de Usuários
+                    </CardTitle>
+                  </div> 
+                  <CardDescription className="sm:text-lg">
+                    Total de usuários
+                  </CardDescription>
+                </CardHeader>
+
+                <CardContent>
+                  <p className='text-base sm:text-2xl sm:text-center font-bold text-center'>
+                     120
+                  </p>
+                </CardContent>
+
+            </Card>
+                        
+
+            <Card>
+                <CardHeader className="flex flex-col items-center justify-center">
+                  <div>
+                    <CardTitle className="text-lg sm:text-2xl text-gray-800 select-none">
+                        Número de Usuários
+                    </CardTitle>
+                  </div> 
+                  <CardDescription className="sm:text-lg">
+                    Total de usuários
+                  </CardDescription>
+                </CardHeader>
+
+                <CardContent>
+                  <p className='text-base sm:text-2xl sm:text-center font-bold text-center'>
+                     120
+                  </p>
+                </CardContent>
+
+            </Card>
+              
+
+            <Card>
+                <CardHeader className="flex flex-col items-center justify-center">
+                  <div>
+                    <CardTitle className="text-lg sm:text-2xl text-gray-800 select-none">
+                        Número de Usuários
+                    </CardTitle>
+                  </div> 
+                  <CardDescription className="sm:text-lg">
+                    Total de usuários
+                  </CardDescription>
+                </CardHeader>
+
+                <CardContent>
+                  <p className='text-base sm:text-2xl sm:text-center font-bold text-center'>
+                     120
+                  </p>
+                </CardContent>
+
+            </Card>
+
+          </section>
+          
         <SideBar />
       </div>
-      <SideBar />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import SideBar from '@/Components/AdminComponents/Sidebar';
 
 export default function DashboardPage() {
   const [user, setUser] = useState(null);
@@ -34,7 +35,7 @@ export default function DashboardPage() {
 
   if (!user) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center font-[Montserrat]">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto"></div>
           <p className="mt-4 text-gray-600">Carregando...</p>
@@ -44,7 +45,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-screen bg-gray-50 p-6 font-[Montserrat]">
       <div className="max-w-7xl mx-auto">
         <header className="bg-white shadow rounded-lg p-6 mb-6 flex justify-between items-center">
           <div>
@@ -68,6 +69,7 @@ export default function DashboardPage() {
           </p>
         </div>
       </div>
+      <SideBar />
     </div>
   );
 }

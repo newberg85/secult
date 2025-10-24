@@ -2,37 +2,36 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-const DashboardPage = () => {
+export default function DashboardPage() {
   const [user, setUser] = useState(null);
   const router = useRouter();
 
   useEffect(() => {
-    // 🔥 VERIFICA SE ESTÁ LOGADO - SIMPLES E DIRETO
-    const isLoggedIn = sessionStorage.getItem('admin_logado');
-    const userEmail = sessionStorage.getItem('admin_email');
-    const userName = sessionStorage.getItem('admin_nome');
+    const storedUser = localStorage.getItem('user');
 
-    if (!isLoggedIn) {
-      // Se não está logado, manda pra porra do login
+    if (!storedUser) {
       router.push('/admin/login');
       return;
     }
 
-    setUser({
-      email: userEmail,
-      nome: userName
-    });
+    try {
+      const parsedUser = JSON.parse(storedUser);
+      if (parsedUser.tipo !== 'admin') {
+        router.push('/admin/login');
+        return;
+      }
+      setUser(parsedUser);
+    } catch (err) {
+      console.error('Erro ao ler user:', err);
+      router.push('/admin/login');
+    }
   }, [router]);
 
   const handleLogout = () => {
-    // 🔥 LIMPA TUDO E MANDA PRO LOGIN
-    sessionStorage.removeItem('admin_logado');
-    sessionStorage.removeItem('admin_email');
-    sessionStorage.removeItem('admin_nome');
-    window.location.href = '/admin/login';
+    localStorage.removeItem('user');
+    router.push('/admin/login');
   };
 
-  // Se não tem user ainda, mostra loading
   if (!user) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -47,51 +46,28 @@ const DashboardPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <header className="bg-white shadow rounded-lg p-6 mb-6">
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-2xl font-bold text-gray-800">
-                Painel Administrativo
-              </h1>
-              <p className="text-gray-600">
-                Bem-vindo, <strong>{user.nome}</strong>! ({user.email})
-              </p>
-            </div>
-            <button
-              onClick={handleLogout}
-              className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md transition-colors"
-            >
-              Sair
-            </button>
+        <header className="bg-white shadow rounded-lg p-6 mb-6 flex justify-between items-center">
+          <div>
+            <h1 className="text-2xl font-bold text-gray-800">Painel Administrativo</h1>
+            <p className="text-gray-600">
+              Bem-vindo, <strong>{user.nome}</strong>! ({user.email})
+            </p>
           </div>
+          <button
+            onClick={handleLogout}
+            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md transition-colors"
+          >
+            Sair
+          </button>
         </header>
 
-        {/* Conteúdo */}
         <div className="bg-white p-6 rounded-lg shadow">
           <h2 className="text-xl font-semibold mb-4">Dashboard</h2>
-          <p className="text-gray-700">Você está logado com sucesso no painel administrativo!</p>
-          
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-              <h3 className="font-semibold text-green-800">Usuários</h3>
-              <p className="text-2xl font-bold text-green-600">0</p>
-            </div>
-            
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-              <h3 className="font-semibold text-blue-800">Posts</h3>
-              <p className="text-2xl font-bold text-blue-600">0</p>
-            </div>
-            
-            <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-              <h3 className="font-semibold text-purple-800">Visualizações</h3>
-              <p className="text-2xl font-bold text-purple-600">0</p>
-            </div>
-          </div>
+          <p className="text-gray-700">
+            Você está logado com sucesso no painel administrativo!
+          </p>
         </div>
       </div>
     </div>
   );
-};
-
-export default DashboardPage;
+}

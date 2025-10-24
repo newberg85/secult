@@ -37,7 +37,7 @@ export default function Header() {
     <header className="flex flex-col items-center w-full border-b-[1px] border-solid border-[#D9D9D9] font-[Montserrat] z-50 order-1">
       {/* Top bar */}
       <div className="bg-[#10783B] w-full p-2 text-white z-40 flex justify-between items-center px-4 md:px-20">
-        <span className="font-extralight text-xs">
+        <span className="font-extralight text-xs ">
           PREFEITURA DE MARANGUAPE | PORTAL DA TRANSPARÊNCIA
         </span>
         <div className="flex items-center space-x-3">
@@ -126,10 +126,10 @@ export default function Header() {
               Turismo
             </li>
           </Link>
-          <Link href="/Ouvidoria">
+          <Link href="/ouvidoria">
             <li
               className={`text-[#4B4B4B] hover:text-[#1B7E44] ${
-                isActiveLink("/Ouvidoria")
+                isActiveLink("/ouvidoria")
                   ? "text-[#1B7E44] font-bold border-b-2 border-[#1B7E44]"
                   : ""
               }`}

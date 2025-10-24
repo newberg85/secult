@@ -10,7 +10,7 @@ const MapPage = () => {
   return (
     <>
       <Header />
-      <div className="max-w-7xl mx-auto pt-5 pb-10">
+      <div className=" mx-auto  ">
         <Map />
       </div>
     </>

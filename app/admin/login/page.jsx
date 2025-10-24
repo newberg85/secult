@@ -73,11 +73,11 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4 sm:p-6">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4 sm:p-6 font-[Montserrat]">
       <div className="w-full max-w-sm bg-white rounded-xl shadow-lg p-6 sm:p-8">
         <header className="text-center mb-6">
           <img
-            src="https://placehold.co/160x60/10B981/ffffff?text=SECULT"
+            src="/secult.png"
             alt="SECULT Logo"
             className="w-40 h-auto mx-auto mb-3 rounded-lg"
             loading="lazy"
@@ -87,7 +87,7 @@ const LoginPage = () => {
                 "https://placehold.co/160x60/10B981/ffffff?text=SECULT";
             }}
           />
-          <h1 className="text-xl sm:text-2xl font-semibold text-gray-800">
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-800 font-[Montserrat]">
             Painel de Administração
           </h1>
           <p className="text-xs sm:text-sm text-gray-500 mt-1">

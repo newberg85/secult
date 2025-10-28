@@ -61,7 +61,7 @@ export default function DashboardPage() {
 
         <SideBar />
       </div>
-      <SideBar />
+    
     </div>
   );
 }

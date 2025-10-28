@@ -38,7 +38,7 @@ const page = () => {
             />
             <p className="text-xl mt-4">Descrição da Noticia</p>
             <textarea
-              className="w-full sm:w-[500px] mt-4 px-4 py-3 shadow bg-gray-100"
+              className="w-full sm:w-[500px] mt-4 px-4 py-3 shadow bg-gray-100 resize-none"
               type="text"
               placeholder="Escreva o conteudo"
               rows={6}

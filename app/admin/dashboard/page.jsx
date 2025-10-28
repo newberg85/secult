@@ -141,6 +141,7 @@ export default function DashboardPage() {
           
         <SideBar />
       </div>
+    
     </div>
   );
 }

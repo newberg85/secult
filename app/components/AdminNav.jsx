@@ -20,7 +20,7 @@ const AdminNav = () => {
   };
 
   return (
-    <div className="flex flex-col  bg-muted/40 p-4">
+    <div className="flex flex-col">
 
       <aside
       className="fixed inset-y-0 left-0 z-10 hidden w-14 border-r bg-background sm:flex flex-col"

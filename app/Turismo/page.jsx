@@ -10,14 +10,14 @@ export default function Home() {
     <div className="grid-rows-[20px_1fr_20px] items-center min-h-screen font-[Montserrat]">
       <Header />
       <div className="flex flex-col w-full p-10">
-        <div className="flex flex-row ps-32 gap-4 items-center">
+        <div className="flex flex-col md:flex-row md:px-32 gap-4 items-center">
           <div className="">
-              <h1 className="text-[#1B7E44] text-2xl font-bold">Maranguape pelo mapa!</h1>
-            <p className="text-justify font-light">
+              <h1 className="text-[#1B7E44] text-2xl md:text-3xl font-bold">Maranguape pelo mapa!</h1>
+            <p className="text-justify  font-light">
 
-              Navegue pelo nosso mapa e conheça os lugares que <br />
-              fazem de Maranguape um destino único. De trilhas <br />
-              a museus, cada ponto revela uma parte da nossa <br />
+              Navegue pelo nosso mapa e conheça os lugares que <br className="hidden md:block"/>
+              fazem de Maranguape um destino único. De trilhas <br className="hidden md:block"/>
+              a museus, cada ponto revela uma parte da nossa <br className="hidden md:block"/>
               história, cultura e belezas naturais.
             </p>
             <div className="py-3">
@@ -43,10 +43,10 @@ export default function Home() {
     <div className=" w-full p-10 gap-7 justify-center">
       <div className=" w-full p-10 gap-7 justify-center">
         <div className="mt-3">
-          <h1 className="text-2xl font-bold text-[#10783b] ml-[70px] inline-block pb-1">
+          <h1 className="text-3xl font-bold text-black md:border-b-4  md:border-[#10783b] inline-block pb-2">
            Pontos Turisticos
           </h1>
-          <div className="h-1 bg-[#10783b] w-[110] ml-[70]"></div>
+          <div className="md:hidden h-1 bg-[#10783b] w-[110] mx-auto md:ml-[70]"></div>
         </div>
         <div className="flex flex-wrap gap-5 justify-center border-t-1 pt-10 border-gray-400 px-8">
           <div className="bg-gray-200 w-[275px] h-[275px] rounded-sm"> 

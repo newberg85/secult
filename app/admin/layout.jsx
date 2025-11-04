@@ -6,7 +6,7 @@ const AdminLayout = ({ children }) => {
   return (
       <div className="flex flex-col">
         <AdminNav />
-        <main className="flex-1 p-6 sm:p-1 bg-gray-50 ">
+        <main className="flex-1 sm:p-0 bg-gray-50 ">
           {children}
         </main>
       </div>

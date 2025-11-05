@@ -1,7 +1,4 @@
 'use client';
-import { useState } from "react";
-import { signOut } from "firebase/auth";
-import { auth } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
 import { Home, HomeIcon, LogOut, MenuIcon, Package, Settings, Users} from "lucide-react";
 import { Sheet, SheetTrigger, SheetContent } from "@/Components/ui/sheet";
@@ -10,14 +7,10 @@ import Link from "next/link";
 import { TooltipProvider, TooltipContent, TooltipTrigger, Tooltip } from "@/Components/ui/tooltip";
 
 
-const AdminNav = () => {
+const AdminNav = ({  onLogout }) => {
   const router = useRouter();
   
 
-  const handleLogout = async () => {
-    await signOut(auth);
-    router.push("/admin/login");
-  };
 
   return (
     <div className="flex flex-col">
@@ -37,7 +30,8 @@ const AdminNav = () => {
                 <Tooltip>
                   <TooltipTrigger asChild>
                      <Link
-                href="#"
+                href="/admin/dashboard"
+                prefetch={false}
                 className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-muted-foreground
                 transition-colors hover:text-foreground"
                 >
@@ -85,15 +79,14 @@ const AdminNav = () => {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                     <Link
-                href="#"
-                onClick={handleLogout}
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-muted-foreground
-                transition-colors hover:text-foreground"
+                     <button
+                     onClick={onLogout}
+                     className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-muted-foreground
+                     transition-colors hover:text-foreground"
                 >
                 <LogOut className="w-5 h-5"/>
                 <span className="sr-only">Sair</span>
-                </Link>
+                </button>
                   </TooltipTrigger>
                   <TooltipContent side="right">Sair</TooltipContent>
                 </Tooltip>
@@ -151,16 +144,14 @@ const AdminNav = () => {
                 <Settings />
                Configurações
               </Link>
-              <Link
-              href="#"
-              onClick={handleLogout}
+              <button
+              onClick={onLogout}
               className="flex items-center gap-4 px-2.5 text-muted-foreground
               hover:text-foreground"
-              prefetch={false}
               >
                 <LogOut />
                Sair
-              </Link>
+              </button>
             </nav>
         </SheetContent>
        </Sheet>

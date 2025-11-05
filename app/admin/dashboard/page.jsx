@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import SideBar from '@/Components/AdminComponents/Sidebar';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/Components/ui/card';
-import { Users } from 'lucide-react';
 import Image from "next/image";
 
 export default function DashboardPage() {
@@ -31,10 +30,6 @@ export default function DashboardPage() {
     }
   }, [router]);
 
-  const handleLogout = () => {
-    localStorage.removeItem('user');
-    router.push('/admin/login');
-  };
 
   if (!user) {
     return (

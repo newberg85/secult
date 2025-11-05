@@ -33,7 +33,7 @@ const Page = () => {
 
           {/* Título */}
           <h1 className="text-3xl font-extrabold text-white text-center mb-2 tracking-wide">
-            Cadastro de Notícia
+            Cadastro de Evento
           </h1>
 
           {/* Upload de Imagem */}
@@ -71,7 +71,7 @@ const Page = () => {
           {/* Título da Notícia */}
           <div>
             <label className="text-white text-base mb-2 block">
-              Título da Notícia
+              Título do Evento
             </label>
             <input
               type="text"
@@ -84,7 +84,7 @@ const Page = () => {
           {/* Descrição */}
           <div>
             <label className="text-white text-base mb-2 block">
-              Descrição da Notícia
+              Descrição do Evento
             </label>
             <textarea
               placeholder="Escreva o conteúdo"

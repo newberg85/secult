@@ -7,7 +7,7 @@ const AdminLayout = ({ children }) => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const hideNav = pathname === '/admin/login';
+  const hideNav = pathname === '/admin/login' || pathname === '/admin';
 
 const handleLogout = () => {
   localStorage.removeItem("user");

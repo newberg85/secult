@@ -16,13 +16,13 @@ const AdminNav = ({  onLogout }) => {
     <div className="flex flex-col">
 
       <aside
-      className="fixed inset-y-0 left-0 z-10 hidden w-14 border-r bg-background sm:flex flex-col"
+      className="fixed inset-y-0 left-0 z-10 hidden w-14 sm:flex flex-col border-r border-[#C2C6CF] bg-[#D7DAE0]/70 "
       >
           <nav className="flex flex-col items-center gap-4 px-2 py-5">
               <TooltipProvider>
                 <Link
                 href="#"
-                className="flex h-9 w-9 shrink-0 items-center justify-center bg-primary text-primary-foreground rounded-full"
+                className="flex h-9 w-9 shrink-0 items-center justify-center bg-[#1E2939] text-primary-foreground rounded-full"
                 >
                 <Package className="w-4 h-4"/>
                 </Link>
@@ -95,20 +95,20 @@ const AdminNav = ({  onLogout }) => {
       </aside>
 
      <div className="sm:hidden flex flex-col">
-      <header className="sticky top-0 z-30 flex items-center gap-3 sm:static">
+      <header className="sticky top-0 z-30 flex items-center gap-3 sm:static bg-[#D7DAE0]/90 p-2 border-b border-[#C2C6CF]/80">
        <Sheet>
         <SheetTrigger  asChild>
-          <Button size='icon' variant='outline' className='w-[50px] h-[50px] rounded-full sm:hidden'>
+          <Button size='icon' variant='outline' className='w-[50px] h-[50px] rounded-full sm:hidden bg-[#D7DAE0]/40 border-[#c2c6cf]'>
             <MenuIcon className="w-15 h-15"/>
             <span className="sr-only">Abrir / Fechar menu</span>
           </Button>
         </SheetTrigger>
 
-        <SheetContent side='left' className="sm:max-w-xs">
-            <nav className="py-4 px-3 grid gap-6 text-lg font-medium">
+        <SheetContent side='left' className="sm:max-w-xs bg-[#D7DAE0]">
+            <nav className="py-4 px-3 grid gap-6 text-lg font-medium ">
               <Link 
               href='#'
-              className="flex h-10 bg-primary rounded-full w-10 items-center justify-center text-primary-foreground md:text-base
+              className="flex h-10 rounded-full w-10 items-center bg-[#1E2939] justify-center text-primary-foreground md:text-base
               gap-2"
               prefetch={false}
               >

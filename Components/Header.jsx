@@ -115,10 +115,10 @@ export default function Header() {
               Cultura
             </li>
           </Link>
-          <Link href="/Turismo">
+          <Link href="/turismo">
             <li
               className={`text-[#4B4B4B] hover:text-[#1B7E44] ${
-                isActiveLink("/Turismo")
+                isActiveLink("/turismo")
                   ? "text-[#1B7E44] font-bold border-b-2 border-[#1B7E44]"
                   : ""
               }`}
@@ -126,7 +126,7 @@ export default function Header() {
               Turismo
             </li>
           </Link>
-          <Link href="/Ouvidoria">
+          <Link href="/ouvidoria">
             <li
               className={`text-[#4B4B4B] hover:text-[#1B7E44] ${
                 isActiveLink("/ouvidoria")
@@ -181,10 +181,10 @@ export default function Header() {
                 Cultura
               </li>
             </Link>
-            <Link href="/Turismo">
+            <Link href="/turismo">
               <li
                 className={`text-[#4B4B4B] hover:text-[#1B7E44] ${
-                  isActiveLink("/Turismo")
+                  isActiveLink("/turismo")
                     ? "text-[#1B7E44] font-bold border-b-2 border-[#1B7E44]"
                     : ""
                 }`}
@@ -193,10 +193,10 @@ export default function Header() {
                 Turismo
               </li>
             </Link>
-            <Link href="/Ouvidoria">
+            <Link href="/ouvidoria">
               <li
                 className={`text-[#4B4B4B] hover:text-[#1B7E44] ${
-                  isActiveLink("/Ouvidoria")
+                  isActiveLink("/ouvidoria")
                     ? "text-[#1B7E44] font-bold border-b-2 border-[#1B7E44]"
                     : ""
                 }`}
@@ -239,7 +239,7 @@ export default function Header() {
               Editais
             </li>
           </Link>
-          <Link href="/Equipamentos">
+          <Link href="/equipamentos">
             <li
               className={`text-white hover:text-[#333333] ${
                 isActiveLink("/equipamentos") ? "font-bold underline" : ""

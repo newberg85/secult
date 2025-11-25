@@ -48,7 +48,7 @@ function Slide() {
            <img 
               src={item.image} 
               alt="slider" 
-              className="slide-item w-full h-[300px] sm:h-[400px] w-[310px] md:h-[500px] lg:h-[650px] object-cover"
+              className="slide-item w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[650px] object-cover"
             />
 
           </SwiperSlide>

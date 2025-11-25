@@ -1,8 +1,74 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { collection, addDoc } from "firebase/firestore";
+import docRef from "firebase/firestore";
+import { db } from "../lib/firebase";
 
 const Ouvidoria = () => {
+
+
+  const myPromisse = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const sucess = true;
+      if (sucess) {
+        resolve("Mensagem enviada com sucesso!");
+      } else {
+        reject("Erro ao enviar mensagem!");
+      }
+    }, 3000);
+  });
+
+  const notify = () => toast.promise(myPromisse, {
+    pending: 'Enviando mensagem...',
+    success: 'Mensagem enviada com sucesso!',
+    error: 'Erro ao enviar mensagem!'
+  });
+
+  const notifyError = () => toast.error("Erro ao enviar mensagem! Preencha todos os campos!", {
+    autoClose: 4000,
+  });
+
+    const [email, setEmail] = React.useState("");
+    const [mensagem, setMensagem] = React.useState("");
+    const [loading, setLoading] = React.useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+    try {
+
+
+      if(!email || !mensagem) {
+        notifyError();
+        setLoading(false);
+        return;
+      }
+   
+      const  docRef = await addDoc(collection(db, "manifestacoes"), {
+        email,
+        mensagem,
+      });
+
+      notify();
+
+      setEmail(""); 
+      setMensagem("");
+
+
+
+    } catch (error) {
+        console.error("Erro ao enviar mensagem: ", error);
+        notify();
+    } finally {
+      setLoading(false);
+    }
+
+  };
+
   return (
     <div className="w-full min-h-screen flex flex-col items-center font-[Montserrat] px-6 sm:px-10 md:px-20 lg:px-32 py-10 mb-20">
       {/* Seção de título e introdução */}
@@ -35,7 +101,7 @@ const Ouvidoria = () => {
       {/* Formulário */}
       <div className="w-full max-w-3xl">
         <form
-          action=""
+          onSubmit={handleSubmit}
           className="border-2 border-gray-300 p-6 sm:p-10 flex flex-col gap-5 rounded-lg shadow-md bg-white"
         >
           <h2 className="text-xl sm:text-2xl text-center text-[#fc8a0e] font-semibold mb-6">
@@ -44,22 +110,27 @@ const Ouvidoria = () => {
 
           <input
             type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="E-mail"
             className="p-3 border-2 border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-[#fc8a0e]"
-            required
           />
 
           <textarea
+            value={mensagem}
+            onChange={(e) => setMensagem(e.target.value)}
             placeholder="Descreva o problema"
             className="p-3 border-2 border-gray-300 rounded-lg w-full h-48 sm:h-60 resize-none focus:outline-none focus:ring-2 focus:ring-[#fc8a0e]"
-            required
           ></textarea>
 
-          <input
+          <button
             type="submit"
-            value="Enviar"
             className="bg-[#10783b] hover:bg-[#045023] text-white rounded-md p-3 w-full sm:w-64 mx-auto cursor-pointer transition-colors duration-200"
-          />
+            disabled={loading}
+          >
+            {loading ? "Enviando..." : "Enviar"}
+          </button>
+          <ToastContainer limit={1} position="top-center"/>
         </form>
       </div>
     </div>

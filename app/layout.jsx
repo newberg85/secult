@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} antialiased`}
       >
         <VLibras />
         {children}

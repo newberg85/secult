@@ -28,7 +28,7 @@ const Ouvidoria = () => {
   });
 
   const notifyError = () => toast.error("Erro ao enviar mensagem! Preencha todos os campos!", {
-    autoClose: 3000,
+    autoClose: 4000,
   });
 
     const [email, setEmail] = React.useState("");

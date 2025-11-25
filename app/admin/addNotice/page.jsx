@@ -30,9 +30,6 @@ const Page = () => {
     error: 'Erro ao cadastrar notícia!'
   });
 
-  const notifyError = () => toast.error("Erro ao cadastrar notícia! Preencha todos os campos!", {
-    autoClose: 3000,
-  });
 
 
 
@@ -66,6 +63,8 @@ const Page = () => {
         const formData = new FormData();
         formData.append("file", image);
 
+        formData.append("categoriaUpload", "noticias");
+
         const response = await fetch("/api/upload", {
           method: "POST",
           body: formData,
@@ -77,6 +76,8 @@ const Page = () => {
           console.log("Imagem enviada com sucesso:", imageUrl);
          }
       }
+
+
 
        await addDoc(collection(db, "noticias"), {
         titulo,
@@ -195,6 +196,7 @@ const Page = () => {
             <label className="text-white text-base mb-2 block">Categoria</label>
             <select
               value={categoria}
+              required
               onChange={(e) => setCategoria(e.target.value)}
               name="category"
               className="w-full p-3 bg-white/10 border border-green-400/40 rounded-lg text-white focus:ring-2 focus:ring-green-400 focus:outline-none transition-all"

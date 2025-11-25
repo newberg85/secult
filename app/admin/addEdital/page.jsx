@@ -124,7 +124,7 @@ const Page = () => {
             Cadastro de Edital
           </h1>
 
-          {/* Upload de Imagem */}
+       
           <div className="flex flex-col">
             <label className="text-white text-base mb-2">
               Adicionar Imagem

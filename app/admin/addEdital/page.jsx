@@ -3,23 +3,111 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { LuImagePlus } from "react-icons/lu";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "@/lib/firebase";
+
 
 const Page = () => {
-  const [image, setImage] = useState(null);
-  const [preview, setPreview] = useState(null);
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setImage(file);
-      setPreview(URL.createObjectURL(file));
-    }
-  };
+   const myPromisse = new Promise((resolve, reject) => {
+       setTimeout(() => {
+         const sucess = true;
+         if (sucess) {
+           resolve("Edital cadastrado com sucesso!");
+         } else {
+           reject("Erro ao cadastrar edital!");
+         }
+       }, 3000);
+     });
+   
+     const notify = () => toast.promise(myPromisse, {
+       pending: 'Cadastrando edital...',
+       success: 'Edital cadastrado com sucesso!',
+       error: 'Erro ao cadastrar edital!'
+     });
+   
+   
+   
+   
+     const [image, setImage] = useState(null);
+     const [preview, setPreview] = useState(null);
+     const [titulo, setTitulo] = useState("");
+     const [descricao, setDescricao] = useState("");
+     const [categoria, setCategoria] = useState("");
+     const [loading, setLoading] = useState(false);
+   
+   
+     const handleImageChange = (e) => {
+       const file = e.target.files[0];
+       if (file) {
+         setImage(file);
+         setPreview(URL.createObjectURL(file));
+       }
+     };
+   
+     const handleSubmit = async (e) => {
+       e.preventDefault();
+       setLoading(true);
+   
+   
+       try {
+         
+         
+         let imageUrl = "";
+         console.log("enviando imagem");
+         if (image) {
+           const formData = new FormData();
+           formData.append("file", image);
+   
+           formData.append("categoriaUpload", "editais");
+   
+           const response = await fetch("/api/upload", {
+             method: "POST",
+             body: formData,
+           });
+   
+           const data = await response.json();
+            if (data.url) {
+             imageUrl = data.url;
+             console.log("Imagem enviada com sucesso:", imageUrl);
+            }
+         }
+   
+          await addDoc(collection(db, "editais"), {
+           titulo,
+           descricao,
+           categoria,
+           image: imageUrl,
+         }); 
+   
+         notify();
+   
+         setTitulo("");
+         setPreview(null);
+         setDescricao("");
+         setCategoria("");
+         setImage(null);
+         setPreview(null);
+   
+   
+       } catch (error) {
+          console.error("Erro ao adicionar edital:", error);
+           notify();
+           setLoading(false);
+       }
+       finally{
+         setLoading(false);
+       }
+   
+     };
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-800 to-gray-500 flex items-center justify-center p-6 font-[Montserrat]">
       <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-3xl shadow-xl p-8 w-full max-w-[650px] transition-all duration-500 hover:shadow-2xl">
-        <form className="flex flex-col gap-6">
+        <form  onSubmit={handleSubmit} className="flex flex-col gap-6">
           {/* Logo */}
           <div className="flex justify-center">
             <Image
@@ -75,6 +163,8 @@ const Page = () => {
             </label>
             <input
               type="text"
+              value={titulo}
+              onChange={(e) => setTitulo(e.target.value)}
               placeholder="Escreva o título"
               className="w-full p-3 bg-white/10 border border-green-400/40 rounded-lg text-white placeholder-gray-300 focus:ring-2 focus:ring-green-400 focus:outline-none transition-all"
               required
@@ -87,6 +177,8 @@ const Page = () => {
               Descrição do Edital
             </label>
             <textarea
+              value={descricao}
+              onChange={(e) => setDescricao(e.target.value)}
               placeholder="Escreva o conteúdo"
               rows={6}
               className="w-full p-3 bg-white/10 border border-green-400/40 rounded-lg text-white placeholder-gray-300 focus:ring-2 focus:ring-green-400 focus:outline-none transition-all resize-none"
@@ -98,9 +190,14 @@ const Page = () => {
           <div>
             <label className="text-white text-base mb-2 block">Categoria</label>
             <select
+              value={categoria}
+              onChange={(e) => setCategoria(e.target.value)}
               name="category"
               className="w-full p-3 bg-white/10 border border-green-400/40 rounded-lg text-white focus:ring-2 focus:ring-green-400 focus:outline-none transition-all"
-            >
+            > 
+             <option value="" disabled className="bg-gray-700 text-white">
+                selecione uma categoria
+              </option>
               <option value="Cultura" className="bg-gray-700 text-white">
                 Cultura
               </option>
@@ -116,10 +213,12 @@ const Page = () => {
           {/* Botão */}
           <button
             type="submit"
+            disabled={loading}
             className="w-full py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition duration-300 shadow-md hover:shadow-lg"
           >
-            Adicionar
+            {loading ? "Adicionando..." : "Adicionar"}
           </button>
+          <ToastContainer limit={1} position="top-center"/>
         </form>
       </div>
     </div>

@@ -9,8 +9,8 @@ export default function Home() {
   return (
     <div className="grid-rows-[20px_1fr_20px] items-center min-h-screen font-[Montserrat]">
       <Header />
-      <div className="flex flex-col w-full p-10">
-        <div className="flex flex-col md:flex-row md:px-32 gap-4 items-center">
+      <div className="flex flex-col w-full px-10 py-4 justify-between">
+        <div className="flex flex-col md:flex-row md:px-32 items-center justify-between">
           <div className="">
               <h1 className="text-[#1B7E44] text-2xl md:text-3xl font-bold">Maranguape pelo mapa!</h1>
             <p className="text-justify  font-light">
@@ -33,15 +33,16 @@ export default function Home() {
               alt="servicos"
               src="/Turismo.png"
               width={700} 
-              height={700} 
+              height={700}
+              className="md:h-[500px] md:w-[500px] object-contain" 
               priority
             />
           </div>
         </div>
       </div>
      
-    <div className=" w-full p-10 gap-7 justify-center">
-      <div className=" w-full p-10 gap-7 justify-center">
+    <div className=" w-full px-10 py-3 gap-7 justify-center">
+      <div className=" w-full px-10 py-3 gap-7 justify-center">
         <div className="mt-3">
           <h1 className="text-3xl font-bold text-black md:border-b-4  md:border-[#10783b] inline-block pb-2">
            Pontos Turisticos

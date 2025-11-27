@@ -45,7 +45,7 @@ const AdminNav = ({  onLogout }) => {
                 <Tooltip>
                   <TooltipTrigger asChild>
                      <Link
-                href="#"
+                href="/admin/agentes"
                 className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-muted-foreground
                 transition-colors hover:text-foreground"
                 >
@@ -118,7 +118,7 @@ const AdminNav = ({  onLogout }) => {
                 </span>
               </Link>
               <Link
-               href="#"
+               href="/admin/dashboard"
               className="flex items-center gap-4 px-2.5 text-muted-foreground
               hover:text-foreground"
               prefetch={false}
@@ -127,7 +127,7 @@ const AdminNav = ({  onLogout }) => {
                Inicio
               </Link>
               <Link
-               href="#"
+               href="/admin/agentes"
               className="flex items-center gap-4 px-2.5 text-muted-foreground
               hover:text-foreground"
               prefetch={false}

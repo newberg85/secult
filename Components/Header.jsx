@@ -57,7 +57,7 @@ export default function Header() {
       </div>
 
       {/* Main navigation */}
-      <nav className="container mx-auto py-4 px-4 flex flex-col sm:flex-row justify-between items-center z-30">
+      <nav className="container mx-auto py-4 px-4 flex flex-col sm:flex-row justify-between items-center z-30  font-[Montserrat]">
         <div className="flex justify-between items-center w-full sm:w-auto">
           <Image
             src="/secult.png"
@@ -210,8 +210,8 @@ export default function Header() {
       </nav>
 
       {/* Floating menu */}
-      <div className="bg-[#1B7E44] w-full max-w-[1000px] transform translate-y-[10px] p-1 z-50 rounded-sm hidden sm:block">
-        <ul className="flex flex-wrap justify-center space-x-8 text-sm">
+      <div className="bg-[#1B7E44] w-full max-w-[1000px] transform translate-y-[10px] p-1 z-50 rounded-sm hidden sm:block font-[Montserrat]">
+        <ul className="flex flex-wrap justify-center space-x-20 text-sm">
           <Link href="/institucional">
             <li
               className={`text-white hover:text-[#333333] ${

@@ -38,7 +38,7 @@ const SideBar = () => {
         ].map((item, i) => (
           <div
             key={i}
-            className="max-w-7xl mx-auto bg-white/20 backdrop-blur-xl border border-white/30
+            className="w-full mx-auto bg-white/20 backdrop-blur-xl border border-white/30
                        shadow-xl rounded-2xl p-6 flex flex-col sm:flex-row justify-between 
                        items-center gap-6 hover:bg-white/30 hover:scale-[1.02] transition-all duration-300"
           >

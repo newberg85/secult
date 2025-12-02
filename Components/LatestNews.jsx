@@ -1,8 +1,9 @@
 "use client";
 
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Article } from "./Article";
+import { collection, getDocs, orderBy, query, Timestamp } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 export const LatestNews = () => {
   const [articles, setArticles] = useState([]);
@@ -10,20 +11,35 @@ export const LatestNews = () => {
 
   const fetchNews = async () => {
     try {
-      const response = await axios.get(
-        `https://newsapi.org/v2/everything?q=brasil&language=pt&pageSize=10&apiKey=d5bbcab384a44b4a9a3c0212c6c692f4`
+      const q = query(
+        collection(db, "noticias"),
+        orderBy("publishedAt", "desc")
       );
 
-      const { articles: fetchedArticles } = response.data;
+      const snapshot = await getDocs(q);
 
-      const sortedArticles = fetchedArticles.sort(
-        (a, b) =>
-          new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-      );
+      const data = snapshot.docs.map((doc) => {
+        const article = doc.data();
 
-      setArticles(sortedArticles);
+        // 🔥 Garantindo que a data é convertida corretamente:
+        let publishedAt;
+
+        if (article.publishedAt instanceof Timestamp) {
+          publishedAt = article.publishedAt.toDate();
+        } else {
+          publishedAt = new Date(article.publishedAt);
+        }
+
+        return {
+          id: doc.id,
+          ...article,
+          publishedAt,
+        };
+      });
+
+      setArticles(data);
     } catch (error) {
-      console.error("Erro ao buscar noticias:", error);
+      console.error("Erro ao buscar notícias:", error);
     } finally {
       setLoading(false);
     }
@@ -38,30 +54,30 @@ export const LatestNews = () => {
   return (
     <div className="w-full py-10 flex justify-center">
       <div className="flex flex-col md:flex-row gap-6 my-8 mx-4 w-full max-w-7xl">
+        
+        {/* PRIMEIRA NOTÍCIA (PRINCIPAL) */}
         <div className="flex-1">
           <h2 className="text-[#486284] font-semibold text-xl mb-4 sm:text-lg">
             Últimas Notícias
           </h2>
 
-          {loading ? (
-            <div className="flex flex-col gap-4">
-              {/* artigo principal */}
-              <div className="h-64 bg-gray-300 rounded-lg animate-pulse w-full"></div>
-            </div>
+          {loading || articles.length === 0 ? (
+            <div className="h-64 bg-gray-300 rounded-lg animate-pulse w-full"></div>
           ) : (
             <Article
-              title={articles[0].title}
+              title={articles[0].titulo}
               author={articles[0].author}
-              description={articles[0].description}
-              url={articles[0].url}
-              urlToImage={articles[0].urlToImage}
-              sourceName={articles[0].source.name}
+              description={articles[0].descricao}
+              url={`/noticia/${articles[0].slug}`}
+              imageUrl={articles[0].image}
+              sourceName={articles[0].sourceName}
               publishedAt={articles[0].publishedAt}
               isMain={true}
             />
           )}
         </div>
 
+        {/* LISTA LATERAL */}
         <div className="flex flex-col gap-4 w-full md:w-[350px] mt-6 md:mt-9">
           {loading
             ? skeletonArray.slice(1).map((_, idx) => (
@@ -74,9 +90,11 @@ export const LatestNews = () => {
                 <Article
                   key={index}
                   author={article.author}
-                  title={article.title}
-                  url={article.url}
-                  sourceName={article.source.name}
+                  title={article.titulo}
+                  description={article.descricao}
+                  url={`/noticia/${article.slug}`}
+                  imageUrl={article.image}
+                  sourceName={article.sourceName}
                   publishedAt={article.publishedAt}
                 />
               ))}

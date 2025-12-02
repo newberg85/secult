@@ -43,7 +43,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="relative min-h-screen font-[Montserrat] bg-gradient-to-br from-gray-200 via-gray-400 to-gray-700 overflow-hidden">
+    <div className="relative min-h-screen font-[Montserrat] bg-gradient-to-br from-gray-200 via-gray-200 to-gray-200 overflow-hidden">
       {/* Fundo com efeito de vidro */}
       <div className="absolute inset-0 backdrop-blur-3xl bg-white/10"></div>
 

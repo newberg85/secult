@@ -68,7 +68,7 @@ export const LatestNews = () => {
               title={articles[0].titulo}
               author={articles[0].author}
               description={articles[0].descricao}
-              url={`/noticia/${articles[0].slug}`}
+              url={`/noticias/${articles[0].slug}`}
               imageUrl={articles[0].image}
               sourceName={articles[0].sourceName}
               publishedAt={articles[0].publishedAt}
@@ -92,7 +92,7 @@ export const LatestNews = () => {
                   author={article.author}
                   title={article.titulo}
                   description={article.descricao}
-                  url={`/noticia/${article.slug}`}
+                  url={`/noticias/${article.slug}`}
                   imageUrl={article.image}
                   sourceName={article.sourceName}
                   publishedAt={article.publishedAt}

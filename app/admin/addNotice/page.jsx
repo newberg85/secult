@@ -11,6 +11,25 @@ import { createSlug } from "@/lib/utils";
 
 
 const Page = () => {
+
+  const myPromisse = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const sucess = true;
+        if (sucess) {
+          resolve("notícia cadastrada com sucesso!");
+        } else {
+          reject("Erro ao cadastrar notícia!");
+        }
+      }, 3000);
+    });
+  
+    const notify = () => toast.promise(myPromisse, {
+      pending: 'Cadastrando notícia...',
+      success: 'notícia cadastrada com sucesso!',
+      error: 'Erro ao cadastrar notícia!'
+    });
+  
+
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const [titulo, setTitulo] = useState("");
@@ -28,8 +47,8 @@ const Page = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
-    toast.info("Cadastrando notícia...");
+    
+    notify();
 
     try {
       let imageUrl = "";
@@ -61,14 +80,13 @@ const Page = () => {
       await addDoc(collection(db, "noticias"), {
         titulo,
         slug,
-        descricao,
+        descricao, 
         categoria,
         image: imageUrl,
         createdAt: new Date(),
         publishedAt: serverTimestamp(),
       });
 
-      toast.success("Notícia cadastrada com sucesso!");
 
       // ---- RESETAR CAMPOS ----
       setTitulo("");
@@ -79,7 +97,7 @@ const Page = () => {
 
     } catch (error) {
       console.error("Erro ao adicionar notícia:", error);
-      toast.error("Erro ao cadastrar notícia!");
+      setLoading(false);
     } finally {
       setLoading(false);
     }

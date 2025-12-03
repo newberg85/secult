@@ -10,7 +10,6 @@ export default async function NoticiaPage({ params }) {
   if (snapshot.empty) {
     return <div>Notícia não encontrada.</div>;
   }
-
   const noticia = snapshot.docs[0].data();
 
   return (

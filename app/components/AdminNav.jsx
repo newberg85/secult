@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from "next/navigation";
-import { Home, HomeIcon, LogOut, MenuIcon, Package, Settings, Users} from "lucide-react";
+import { Home, HomeIcon, LogOut, MenuIcon, Newspaper, Package, Settings, Users} from "lucide-react";
 import { Sheet, SheetTrigger, SheetContent } from "@/Components/ui/sheet";
 import { Button } from "@/Components/ui/button";
 import Link from "next/link";
@@ -54,6 +54,20 @@ const AdminNav = ({  onLogout }) => {
                 </Link>
                   </TooltipTrigger>
                   <TooltipContent side="right">Usuários</TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                     <Link
+                href="/admin/notices"
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-muted-foreground
+                transition-colors hover:text-foreground"
+                >
+                <Newspaper className="w-5 h-5"/>
+                <span className="sr-only">Notícias</span>
+                </Link>
+                  </TooltipTrigger>
+                  <TooltipContent side="right">Notícias</TooltipContent>
                 </Tooltip>
 
                 <Tooltip>

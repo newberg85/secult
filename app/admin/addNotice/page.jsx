@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { LuImagePlus } from "react-icons/lu";
 import { ToastContainer, toast } from "react-toastify";
@@ -9,26 +9,24 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { createSlug } from "@/lib/utils";
 
-
 const Page = () => {
-
   const myPromisse = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const sucess = true;
-        if (sucess) {
-          resolve("notícia cadastrada com sucesso!");
-        } else {
-          reject("Erro ao cadastrar notícia!");
-        }
-      }, 3000);
+    setTimeout(() => {
+      const sucess = true;
+      if (sucess) {
+        resolve("notícia cadastrada com sucesso!");
+      } else {
+        reject("Erro ao cadastrar notícia!");
+      }
+    }, 3000);
+  });
+
+  const notify = () =>
+    toast.promise(myPromisse, {
+      pending: "Cadastrando notícia...",
+      success: "notícia cadastrada com sucesso!",
+      error: "Erro ao cadastrar notícia!",
     });
-  
-    const notify = () => toast.promise(myPromisse, {
-      pending: 'Cadastrando notícia...',
-      success: 'notícia cadastrada com sucesso!',
-      error: 'Erro ao cadastrar notícia!'
-    });
-  
 
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
@@ -47,7 +45,7 @@ const Page = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    
+
     notify();
 
     try {
@@ -80,13 +78,12 @@ const Page = () => {
       await addDoc(collection(db, "noticias"), {
         titulo,
         slug,
-        descricao, 
+        descricao,
         categoria,
         image: imageUrl,
         createdAt: new Date(),
         publishedAt: serverTimestamp(),
       });
-
 
       // ---- RESETAR CAMPOS ----
       setTitulo("");
@@ -94,7 +91,6 @@ const Page = () => {
       setCategoria("");
       setImage(null);
       setPreview(null);
-
     } catch (error) {
       console.error("Erro ao adicionar notícia:", error);
       setLoading(false);
@@ -107,7 +103,6 @@ const Page = () => {
     <div className="min-h-screen bg-gradient-to-br from-green-800 to-gray-500 flex items-center justify-center p-6 font-[Montserrat]">
       <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-3xl shadow-xl p-8 w-full max-w-[650px] transition-all duration-500 hover:shadow-2xl">
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-          
           <div className="flex justify-center">
             <Image
               src="/logo-positiva.png"
@@ -124,7 +119,9 @@ const Page = () => {
 
           {/* Upload */}
           <div className="flex flex-col">
-            <label className="text-white text-base mb-2">Adicionar Imagem</label>
+            <label className="text-white text-base mb-2">
+              Adicionar Imagem
+            </label>
             <label
               htmlFor="image"
               className="relative flex items-center justify-center w-full h-40 bg-white/10 border border-green-300/50 rounded-xl cursor-pointer hover:bg-white/20 transition"
@@ -166,9 +163,7 @@ const Page = () => {
 
           {/* Descrição */}
           <div>
-            <label className="text-white text-base mb-2 block">
-              Descrição
-            </label>
+            <label className="text-white text-base mb-2 block">Descrição</label>
             <textarea
               value={descricao}
               onChange={(e) => setDescricao(e.target.value)}
@@ -181,9 +176,7 @@ const Page = () => {
 
           {/* Categoria */}
           <div>
-            <label className="text-white text-base mb-2 block">
-              Categoria
-            </label>
+            <label className="text-white text-base mb-2 block">Categoria</label>
 
             <select
               value={categoria}

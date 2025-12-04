@@ -3,9 +3,9 @@ import React from "react";
 import { TbClockHour4 } from "react-icons/tb";
 
 export const Article = ({
-  author,
   title,
   description,
+  category,
   url,
   imageUrl,
   sourceName,
@@ -23,7 +23,6 @@ export const Article = ({
 
   return isMain ? (
     <div className={`relative flex ${className}`}>
-      
       {/* imagem principal */}
       {imageUrl && (
         <img
@@ -39,9 +38,9 @@ export const Article = ({
       {/* Conteúdo */}
       <div className="absolute bottom-5 left-5 z-20 text-white p-3 rounded-md w-4/5">
         <a href={url}>
-          <div className="flex items-center gap-4 mb-2">
-            <h3 className="text-sm">{author}</h3>
+          <div className="flex items-center justce mb-2">
             <small className="flex items-center gap-1 text-xs">
+              <span className="text-xl">{category}</span>
               <TbClockHour4 /> {formatTime(publishedAt)}
             </small>
           </div>
@@ -49,29 +48,19 @@ export const Article = ({
           <span className="font-bold text-[23px] leading-snug">{title}</span>
         </a>
 
-        {description && <p className="mt-2 text-sm">{description}</p>}
+        {/* {description && <p className="mt-2 text-sm">{description}</p>} */}
       </div>
     </div>
   ) : (
-    <div className={`flex items-center ml-5 border-l-7 border-[#10783B] pl-3 ${className}`}>
-      {/* miniatura */}
-      {imageUrl && (
-        <div className="relative w-24 h-20 rounded-md overflow-hidden mr-3">
-          <Image
-            src={imageUrl}
-            alt={title}
-            fill
-            className="object-cover"
-            sizes="100px"
-          />
-        </div>
-      )}
+    <div
+      className={`flex items-center ml-5 border-l-7 border-[#10783B] pl-3 ${className}`}
+    >
 
       <div className="flex flex-col">
         <a href={url}>
-          <div className="flex items-center gap-4 mb-1">
-            <h3 className="text-sm">{author}</h3>
+          <div className="flex items-center mb-1">
             <small className="flex items-center gap-1 text-xs">
+              <span>{category}</span>
               <TbClockHour4 /> {formatTime(publishedAt)}
             </small>
           </div>

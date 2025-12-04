@@ -66,8 +66,8 @@ export const LatestNews = () => {
           ) : (
             <Article
               title={articles[0].titulo}
-              author={articles[0].author}
               description={articles[0].descricao}
+              category={articles[0].categoria}
               url={`/noticias/${articles[0].slug}`}
               imageUrl={articles[0].image}
               sourceName={articles[0].sourceName}
@@ -89,9 +89,9 @@ export const LatestNews = () => {
             : articles.slice(1, 5).map((article, index) => (
                 <Article
                   key={index}
-                  author={article.author}
                   title={article.titulo}
                   description={article.descricao}
+                  category={article.categoria}
                   url={`/noticias/${article.slug}`}
                   imageUrl={article.image}
                   sourceName={article.sourceName}

@@ -13,13 +13,14 @@ export const Article = ({
   isMain = false,
   className,
 }) => {
-  const formatTime = (isoDate) => {
-    const date = new Date(isoDate);
-    return date.toLocaleTimeString("pt-BR", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-  };
+  const formatFullDate = (isoDate) => {
+  const date = new Date(isoDate);
+  return date.toLocaleDateString("pt-BR", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
+};
 
   return isMain ? (
     <div className={`relative flex ${className}`}>
@@ -40,8 +41,8 @@ export const Article = ({
         <a href={url}>
           <div className="flex items-center justce mb-2">
             <small className="flex items-center gap-1 text-xs">
-              <span className="text-xl">{category}</span>
-              <TbClockHour4 /> {formatTime(publishedAt)}
+              <span className="text-xl font-bold">{category}</span>
+              <TbClockHour4 /> {formatFullDate(publishedAt)}
             </small>
           </div>
 
@@ -60,8 +61,8 @@ export const Article = ({
         <a href={url}>
           <div className="flex items-center mb-1">
             <small className="flex items-center gap-1 text-xs">
-              <span>{category}</span>
-              <TbClockHour4 /> {formatTime(publishedAt)}
+              <span className="font-semibold text-green-800">{category}</span>
+              <TbClockHour4 /> {formatFullDate(publishedAt)}
             </small>
           </div>
 
